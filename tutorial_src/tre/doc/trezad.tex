@@ -1,0 +1,37 @@
+\documentclass{spiral}
+  \def\title{Tree}
+  \def\id{tre}
+  \def\contest{Example task}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{256 MB}
+
+\begin{document}
+  \makeheader
+
+  As we all know, every Christmas tree consists of exactly three parts,
+  in their descending order: upper crown, lower crown, and the trunk.
+  Each part of tree crown is represented by an isosceles triangle 1 character wide
+  at the top and growing by 1 character in both directions (left and right) 
+  with each line, going downwards.
+  A Christmas tree will be said to be of size $n$ if its upper crown
+  is $n$ lines tall and its lower crown is $n + 1$ lines tall. 
+  The trunk is always 2 characters tall and 1 character wide, located on
+  the tree's vertical axis, regardless of the overall tree size.
+  In this problem you'll be asked to print a Christmas tree of given size,
+  represented by hashes on a dotted background.
+
+  \section{Input}
+
+    A single integer $n$ ($n \leq 1\,000$) denoting the size of the tree.
+
+  \section{Output}
+
+    If $n=0$, print only one line saying "Too small to exist".\\
+    Otherwise, print $2*n+3$ lines, $2*n+1$ characters each, representing a drawing 
+    of an $n$–sized Christmas tree, as described in the problem statement.
+    Check out the examples in order to get a better understanding of the output format.
+
+  \example{1ocen}
+
+\end{document}
