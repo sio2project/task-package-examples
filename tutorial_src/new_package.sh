@@ -27,22 +27,13 @@ if [[ -e "$ID" && ! -z "$(ls -A "$ID")" ]]; then
 fi
 
 for SRC in $(cd "$PACKAGE"; find .); do
+    # Create directory.
     if [[ -d "$PACKAGE/$SRC" ]]; then
-    # copy directory non-recursively
         mkdir -vp -- "$ID/$SRC"
+    # Create symlink (to makefile or .h library).
     elif [[ -f "$PACKAGE/$SRC" ]]; then
         ln -rs $PACKAGE/$SRC $ID/$SRC
     else
-    # other files
-        echo "Niewspierany typ pliku '$PACKAGE/$SRC'."
+        echo "File format not supported."
     fi
 done
-
-# mkdir $ID
-# mkdir $ID/doc
-# mkdir $ID/in
-# mkdir $ID/out
-# mkdir $ID/prog
-# ln -rs $PACKAGE/Makefile $ID/Makefile
-# ln -rs $PACKAGE/prog/* $ID/prog/
-# ln -rs $PACKAGE/doc/Makefile $ID/doc/Makefile
