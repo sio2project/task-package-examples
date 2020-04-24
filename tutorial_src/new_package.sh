@@ -30,6 +30,8 @@ for SRC in $(cd "$PACKAGE"; find .); do
     # Create directory.
     if [[ -d "$PACKAGE/$SRC" ]]; then
         mkdir -vp -- "$ID/$SRC"
+    elif [[ -x "$PACKAGE/$SRC" ]]; then
+        echo "Skip executable $PACKAGE/$SRC"
     # Create symlink (to makefile or .h library).
     elif [[ -f "$PACKAGE/$SRC" ]]; then
         ln -rs $PACKAGE/$SRC $ID/$SRC
