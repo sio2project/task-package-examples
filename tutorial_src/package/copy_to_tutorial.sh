@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=${PWD##*/}
-for FILE in "${FILES[@]}"; do
-    cp -v $FILE ../../tutorial/$ID/$FILE
+_id=${PWD##*/}
+for file in "${_files[@]}"; do
+    cp -v $_file ../../tutorial/$_id/$_file
 done

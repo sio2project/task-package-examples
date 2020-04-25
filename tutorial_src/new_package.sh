@@ -1,41 +1,46 @@
 #!/bin/bash
 
-declare -r PACKAGE="$(dirname -- "$0")/package"
+_warn() {
+  echo >&2 "$*"
+}
 
-if [[ ! -d "$PACKAGE" ]]; then
-    echo "Package directory does not exist."
-    exit 1
+_die() {
+  _warn "$*"
+  exit 1
+}
+
+declare -r _package="$(dirname -- "$0")/package"
+
+if [[ ! -d "$_package" ]]; then
+    _die "Package directory does not exist."
 fi
 
 if [[ $# -eq 1 ]]; then
-    declare -r ID="$1"
+    declare -r _id="$1"
 else
-    echo "Usage: $(basename -- "$0") short_name"
-    exit 1
+    _die "Usage: $(basename -- "$0") short_name"
 fi
 
 # Check for '/' character in $ID.
-if [[ "$ID" = */* ]]; then
-    echo "ERROR: short_name can't have '/' character."
-    exit 1
+if [[ "$_id" = */* ]]; then
+    _die "ERROR: short_name can't have '/' character."
 fi
 
-# Fail if $ID exists and is not empty.
-if [[ -e "$ID" && ! -z "$(ls -A "$ID")" ]]; then
-    echo "Directory '$ID' exists and is not empty."
-    exit 1
+# Fail if $_id exists and is not empty.
+if [[ -e "$_id" && ! -z "$(ls -A "$_id")" ]]; then
+    _die "Directory '$_id' exists and is not empty."
 fi
 
-for SRC in $(cd "$PACKAGE"; find .); do
-    # Create directory.
-    if [[ -d "$PACKAGE/$SRC" ]]; then
-        mkdir -vp -- "$ID/$SRC"
-    elif [[ -x "$PACKAGE/$SRC" ]]; then
-        echo "Skip executable $PACKAGE/$SRC"
-    # Create symlink (to makefile or .h library).
-    elif [[ -f "$PACKAGE/$SRC" ]]; then
-        ln -rs $PACKAGE/$SRC $ID/$SRC
+for _src in $(cd "$_package"; find .); do
+    if [[ -d "$_package/$_src" ]]; then
+        # Create directory.
+        mkdir -vp -- "$_id/$_src"
+    elif [[ -x "$_package/$_src" ]]; then
+        echo "Skip executable $_package/$_src"
+    elif [[ -f "$_package/$_src" ]]; then
+        # Create symlink (to makefile or .h library).
+        ln -rs $_package/$_src $_id/$_src
     else
-        echo "File format not supported."
+        _warn "File format not supported."
     fi
 done
