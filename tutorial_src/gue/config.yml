@@ -1,0 +1,7 @@
+title: Guess the number
+
+extra_compilation_files: ['gue.h', 'gue_lib.cc']
+extra_compilation_args: {'cpp': 'gue_lib.cc'}
+
+memory_limit: 65536
+time_limit: 1000
