@@ -1,0 +1,11 @@
+MODE=opr
+ID=gue
+SIG=$(ID)
+
+TIMELIMIT = 1
+SLOW_TIMELIMIT = 3
+MEMLIMIT = 65536
+
+OI_TIME = ~/projects/oiejq/oiejq.sh
+
+CXXFLAGS = gue_lib.cc
