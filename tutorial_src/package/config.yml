@@ -1,0 +1,8 @@
+title: You didn't set a title in config
+
+memory_limit: 262144
+time_limit: 1000
+
+scores:
+  1: 60
+  2: 40
