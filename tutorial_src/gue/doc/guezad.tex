@@ -31,6 +31,7 @@
         \item \texttt{bool isGreater(int x)} -- funkcja ta pyta pierwszego gracza,
         czy wybrana przez niego liczba jest większa od $x$.
         Zwraca \texttt{true} jeśli jest, \texttt{false} w przeciwnym wypadku.
+        Podana liczba powinna należeć do przedziału [1, $n$].
 
         \item \texttt{void answer(int x)} -- funkcja ta zgaduje,
         jaka jest liczba pierwszego gracza. To kończy grę.
@@ -46,6 +47,8 @@
     Program należy skompilować razem z biblioteką \texttt{gue\_lib.cc}.
     Można to zrobić za pomocą polecnia: \\
     \texttt{g++~twoj\_program.cpp~gue\_lib.cc~-o~twoj\_program}.
+    Warto mieć na uwadze, że przykładowa biblioka nie sprawdza
+    poprawności wywoływanych komend.
 
   \section{Wyjście}
     Twój program nie powinien pisać na standardowe wyjście (\texttt{stdout})
