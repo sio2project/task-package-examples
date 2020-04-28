@@ -10,12 +10,13 @@
   \makeheader
 
   As we all know, every Christmas tree consists of exactly three parts,
-  in their descending order: upper crown, lower crown, and the trunk.
-  Each part of tree crown is represented by an isosceles triangle 1 character wide
+  in their descending order: upper part, lower part, and the trunk.
+  Upper and lower part of tree are represented by an isosceles triangle 1 character wide
   at the top and growing by 1 character in both directions (left and right) 
   with each line, going downwards.
-  A Christmas tree will be said to be of size $n$ if its upper crown
-  is $n$ lines tall and its lower crown is $n + 1$ lines tall. 
+  
+  A Christmas tree will be said to be of size $n$ if its upper part
+  is $n$ lines tall and its lower part is $n + 1$ lines tall. 
   The trunk is always 2 characters tall and 1 character wide, located on
   the tree's vertical axis, regardless of the overall tree size.
   In this problem you'll be asked to print a Christmas tree of given size,
@@ -27,8 +28,8 @@
 
   \section{Output}
 
-    If $n=0$, print only one line saying "Too small to exist".\\
-    Otherwise, print $2*n+3$ lines, $2*n+1$ characters each, representing a drawing 
+    If $n=0$, print only one line saying ``Too small to exist".\\
+    Otherwise, print $2 \cdot n + 3$ lines, $2 \cdot n + 1$ characters each, representing a drawing 
     of an $n$–sized Christmas tree, as described in the problem statement.
     Check out the examples in order to get a better understanding of the output format.
 

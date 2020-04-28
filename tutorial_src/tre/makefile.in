@@ -6,4 +6,4 @@ TIMELIMIT = 1
 SLOW_TIMELIMIT = 4
 MEMLIMIT = 262144
 
-OI_TIME = ~/projects/oiejq/oiejq.sh
+OI_TIME = oiejq.sh
