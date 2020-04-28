@@ -1,0 +1,9 @@
+MODE=opr
+ID=__change__
+SIG=$(ID)
+
+TIMELIMIT = 1
+SLOW_TIMELIMIT = 4
+MEMLIMIT = 262144
+
+OI_TIME = ~/path/to/oiejq.sh

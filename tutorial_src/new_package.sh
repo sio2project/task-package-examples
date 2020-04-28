@@ -33,14 +33,20 @@ fi
 
 for _src in $(cd "$_package"; find .); do
     if [[ -d "$_package/$_src" ]]; then
-        # Create directory.
         mkdir -vp -- "$_id/$_src"
     elif [[ -x "$_package/$_src" ]]; then
         echo "Skip executable $_package/$_src"
     elif [[ -f "$_package/$_src" ]]; then
-        # Create symlink (to makefile or .h library).
-        ln -rs $_package/$_src $_id/$_src
+        cp $_package/$_src $_id/$_src
     else
         _warn "File format not supported."
     fi
 done
+
+echo $_id
+
+mkdir -v $_id/in
+touch $_id/in/${_id}0.in
+
+mkdir -v $_id/out
+touch $_id/out/${_id}0.out
