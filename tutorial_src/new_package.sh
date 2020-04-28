@@ -34,16 +34,12 @@ fi
 for _src in $(cd "$_package"; find .); do
     if [[ -d "$_package/$_src" ]]; then
         mkdir -vp -- "$_id/$_src"
-    elif [[ -x "$_package/$_src" ]]; then
-        echo "Skip executable $_package/$_src"
     elif [[ -f "$_package/$_src" ]]; then
         cp $_package/$_src $_id/$_src
     else
         _warn "File format not supported."
     fi
 done
-
-echo $_id
 
 mkdir -v $_id/in
 touch $_id/in/${_id}0.in

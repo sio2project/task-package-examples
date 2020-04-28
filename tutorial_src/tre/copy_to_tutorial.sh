@@ -6,4 +6,7 @@ set -e
 # Example: in/* .
 _files=( doc/trezad.pdf prog/*.cpp prog/*.py in/* out/tre1ocen.out )
 
-. ../package/copy_to_tutorial.sh
+_id=${PWD##*/}
+for _file in "${_files[@]}"; do
+    cp -v $_file ../../tutorial/$_id/$_file
+done

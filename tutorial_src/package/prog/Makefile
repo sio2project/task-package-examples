@@ -73,11 +73,7 @@ clean:
 	rm -f *.so
 	rm -f *.pyc
 	rm -f *wrap*
-	rm -f cfficyklib.cpp
-	rm -f cfficyk.cpp
-	rm -f cyklib.py
 	rm -f *JNI*
-	rm -f cykjavalib.java
 	rm -f *.log
 
 -include makefile.user
