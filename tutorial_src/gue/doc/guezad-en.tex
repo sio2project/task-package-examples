@@ -1,0 +1,169 @@
+\documentclass{spiral}
+  \def\title{Guess the number}
+  \def\id{gue}
+  \def\contest{Example task}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{64 MB}
+
+\begin{document}
+    \makeheader
+
+    A two-person "guess the number" game is given.
+    The rules are as follows:
+    the first player chooses a number in the range [1, $n$],
+    and gives the second player $n$ ($1 \leq n \leq 10^6$).
+    The other player must guess the selected number. 
+    He may ask questions saying "is the secret number greater than $x$?"
+    Write a program that will help the second player guess the number,
+    so he doesn't have to use too many queries.
+
+\section{Communication}
+
+    Your program should use a library which allows querying the first player
+    as well as reporting your final answer.
+    To use the library, write the following in your program header:
+    \begin{itemize}
+        \item \textbf{C++:}
+            \verb|#include "guelib.h"|
+
+        \item \textbf{Python:}
+            \texttt{from guelib import init, isGreater, answer}
+    \end{itemize}
+
+
+    \medskip\noindent
+    The library provides the following three functions:
+    \begin{itemize}
+        \item $\texttt{init}()$ \\
+            This function should be used once, as the first one, to begin the game.
+            The function returns $n$ -- the upper bound of the range of numbers 
+            which is used during this game.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{int init();}
+
+                \item \textbf{Python:}
+		                \texttt{def init()}
+            \end{itemize}
+
+        \item $\texttt{isGreater}(x)$ \\
+            Use this function to ask the first player,
+            if number $x$ ($1 \leq x \leq n$)
+            is greater than the number he picked.
+            The function returns true if $x$ is greater, otherwise false.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{bool isGreater(int x);}
+
+                \item \textbf{Python:}
+		                \texttt{def isGreater(x)}
+            \end{itemize}
+
+        \item $\texttt{answer}(x)$ \\
+            This function should be called only once,
+            at the termination of your program.
+            It reports to the first player that $x$
+            is your guess of his chosen number.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{void answer(int x);}
+                \item \textbf{Python:}
+		                \texttt{def answer(x)}
+                \end{itemize}
+            \end{itemize}
+
+
+    Your program \textbf{cannot} read any data,
+    neither from standard input nor any files.
+    Likewise, it \textbf{cannot} write to any files nor the standard output.
+    It can write to the standard diagnostic output (\texttt{stderr}) -- remember
+    though that this takes (precious) time.
+
+    Your program should terminate immediately
+    after calling the function \texttt{answer}.
+
+
+\section{Sample execution of a program}
+
+    \begin{tabular}{|c|c|p{12.5cm}|}
+        \hline
+
+        \textbf{Call} & \textbf{Return value} & \textbf{Explanation} \\ \hline
+
+        \texttt{init()} & 5 &
+        The game begins. The first player chooses number 4,
+        and we look for a number in range [1, 5],
+        which we are informed about by the value of the init() function.
+        \\ \hline
+
+        \texttt{isGreater(4)} & false &
+        We ask if the number we are looking for is greater than 4.
+        It is not greater (because it is equal),
+        so we get the answer \texttt{false}.  
+        \\ \hline
+
+        \texttt{isGreater(3)} & true &
+        We ask if the number we're looking for is greater than 3.
+        It's greater, so we get the answer \texttt{true}.  
+        \\ \hline
+
+        \texttt{answer(4)} & - &
+        We already know that the number we are looking for is 4,
+        so we answer and finish the program.
+        \\ \hline
+    \end{tabular}
+
+
+
+    \section{Grading}
+
+    In order for the program to get any points, it must work as required,
+    i.e. follow the rules described in the communication section.
+    If it violates any of these rules, it will receive the "Wrong Answer" verdict.
+    If the above conditions are met, the program is evaluated as follows.
+    If the guessed number is incorrect, it will receive no points for the test.
+    Otherwise, let $k$ be the number of queries.
+    \begin{itemize}
+        \item If $k$ does not exceed 20, the program will get
+            the full number of points.
+        \item If $k$ is over 30, but does not exceed 2000, the program will get
+            50\% of points for the test.
+        \item If $k$ is more than 20, but not more than 30,
+            the program will receive $50 + (30 - k) \cdot 5$ points.
+        \item If none of these conditions are met, the program will get 0 points.
+    \end{itemize}
+
+
+\section{Experiments}
+    The directory \texttt{dlazaw} contains the following files,
+    which allow testing if your program is formally correct:
+    \begin{itemize}
+        \item \textbf{C++:} a header file \texttt{guelib.h},
+            a library \texttt{guelib.cpp} and an incorrect sample program
+            \texttt{gue.cpp}
+        \item \textbf{Python:} a library \texttt{guelib.py} and
+            an incorrect sample program \texttt{gue.py}
+    \end{itemize}
+
+    Note that these libraries are merely for the sake of checking
+    correctness of interaction and differ from those which will eventually
+    evaluate your solution.
+    While in the \texttt{dlazaw} directory,
+    you can compile and run \texttt{gue.cpp} or \texttt{gue.py}.
+    To compile in C++, type:
+
+    \begin{itemize}
+        \item \texttt{g++ -O3 -static gue.cpp guelib.cpp -std=c++11 -o gue}
+    \end{itemize}
+
+    Running the Python code doesn't need any extra steps to be taken.
+
+    The resulting program reads from input the number $n$
+    and in the next line the secret number.
+
+    Remember that the provided sample library does not check
+    if the input data is in the correct format,
+    nor whether aforementioned conditions are satisfied.
+
+\end{document}
