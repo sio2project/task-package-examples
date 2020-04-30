@@ -1,6 +1,7 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include <string.h>
 #include "oi.h"
-using namespace oi;
+
 using namespace std;
 
 void endf(const char* msg, int line, int position) {
@@ -10,20 +11,23 @@ void endf(const char* msg, int line, int position) {
 
 int main(int argc, char **argv) {
     if (argc != 4) {
-        cerr << "Uruchomienie: " << argv[0] << " in out wzo" << endl;
+        fprintf(stderr, "Usage: %s in out wzo\n", argv[0]);
         return 1;
     }
 
-    // warto zauważyć, że niepotrzebne są nam pliki .in
+    // In file is not needed.
+    // Still needs to be passed as first argument in main,
+    // for compatibility with sio2 system reasons.
 
     char header_ans[100];
     FILE *fwzo = fopen(argv[3], "r");
     fscanf(fwzo, "%s", header_ans);
     fclose(fwzo);
 
-    // HINT: Plikow fin i fwzo nie trzeba czytac Scannerem.
+    // HINT: fin i fwzo are guaranteed to be correct,
+    // no need to read them with Scanner.
 
-    Scanner *test = new Scanner(argv[2], endf, PL);
+    oi::Scanner *test = new oi::Scanner(argv[2], endf, oi::PL);
 
     char header[100], result[100], comment[100];
     int queries;

@@ -22,12 +22,14 @@ int N, X;
 
 const string magicLine = "GoodJobYouDiDEndTheGame!!";
 
-// uper and lower bounds of interval of possible answers
+// Upper and lower bounds of interval of possible answers.
 int upperBound, lowerBound;
 
 bool initDone = false, ansDone = false;
 int queries = 0;
 
+// Function used to print an output
+// in a format accepted by the checker.
 void output(bool correct, string comment) {
     cout << magicLine << "\n";
     cout << (correct ? "OK" : "WRONG") << "\n";
@@ -35,15 +37,16 @@ void output(bool correct, string comment) {
     cout << comment << "\n";
 }
 
+// If condition is failed, we print an error.
+// Outputing error here guarantees "Wrong Answer" verdict,
+// therefore we don't need to end the program afterwards.
 void assertCondition(bool cond, string err_msg) {
-    // można zauważyć, że kontrukcja sprawdzaczki pozwala wypisać wiele razy
-    // ona złapie tylko pierwszy błąd
     if (!cond)
         output(false, err_msg);
 }
 
 void check() {
-    assertCondition(initDone && !ansDone, "Querries order is incorrect");
+    assertCondition(initDone && !ansDone, "Queries order is incorrect");
 }
 
 }  // namespace
@@ -64,9 +67,9 @@ int init() {
     return N;
 }
 
-// we call the function isGreater
+// We call the function isGreater
 // as greater would collide with a different
-// standard C++ function
+// standard C++ function.
 bool isGreater(int x) {
     queries++;
     check();
@@ -77,7 +80,7 @@ bool isGreater(int x) {
         return X > x;
     }
 
-    // adaptive part
+    // Adaptive part
 
     if (x >= upperBound) {
         return false;
