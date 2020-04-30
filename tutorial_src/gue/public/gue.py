@@ -1,4 +1,4 @@
-from gue_lib import init, isGreater, answer
+from guelib import init, isGreater, answer
 
 if __name__ == "__main__":
     n = init();

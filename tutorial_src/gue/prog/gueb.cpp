@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "gue.h"
+#include "guelib.h"
 
 int random_value(int a, int b)
 {

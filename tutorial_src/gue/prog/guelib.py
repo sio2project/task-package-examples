@@ -9,12 +9,12 @@ if _swig_python_version_info >= (2, 7, 0):
     def swig_import_helper():
         import importlib
         pkg = __name__.rpartition('.')[0]
-        mname = '.'.join((pkg, '_gue_lib')).lstrip('.')
+        mname = '.'.join((pkg, '_guelib')).lstrip('.')
         try:
             return importlib.import_module(mname)
         except ImportError:
-            return importlib.import_module('_gue_lib')
-    _gue_lib = swig_import_helper()
+            return importlib.import_module('_guelib')
+    _guelib = swig_import_helper()
     del swig_import_helper
 elif _swig_python_version_info >= (2, 6, 0):
     def swig_import_helper():
@@ -22,20 +22,20 @@ elif _swig_python_version_info >= (2, 6, 0):
         import imp
         fp = None
         try:
-            fp, pathname, description = imp.find_module('_gue_lib', [dirname(__file__)])
+            fp, pathname, description = imp.find_module('_guelib', [dirname(__file__)])
         except ImportError:
-            import _gue_lib
-            return _gue_lib
+            import _guelib
+            return _guelib
         try:
-            _mod = imp.load_module('_gue_lib', fp, pathname, description)
+            _mod = imp.load_module('_guelib', fp, pathname, description)
         finally:
             if fp is not None:
                 fp.close()
         return _mod
-    _gue_lib = swig_import_helper()
+    _guelib = swig_import_helper()
     del swig_import_helper
 else:
-    import _gue_lib
+    import _guelib
 del _swig_python_version_info
 
 try:
@@ -97,16 +97,16 @@ except __builtin__.Exception:
 
 
 def init():
-    return _gue_lib.init()
-init = _gue_lib.init
+    return _guelib.init()
+init = _guelib.init
 
 def isGreater(x):
-    return _gue_lib.isGreater(x)
-isGreater = _gue_lib.isGreater
+    return _guelib.isGreater(x)
+isGreater = _guelib.isGreater
 
 def answer(x):
-    return _gue_lib.answer(x)
-answer = _gue_lib.answer
+    return _guelib.answer(x)
+answer = _guelib.answer
 # This file is compatible with both classic and new-style classes.
 
 
