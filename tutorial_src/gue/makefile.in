@@ -6,6 +6,6 @@ TIMELIMIT = 1
 SLOW_TIMELIMIT = 3
 MEMLIMIT = 65536
 
-OI_TIME = ~/projects/oiejq/oiejq.sh
+OI_TIME = oiejq.sh
 
 CXXFLAGS = guelib.cpp
