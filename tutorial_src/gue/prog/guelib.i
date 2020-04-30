@@ -1,5 +1,5 @@
-/* gue_lib.i */
- %module gue_lib
+/* guelib.i */
+ %module guelib
  %{
  /* Put header files here or function declarations like below */
  extern int init();

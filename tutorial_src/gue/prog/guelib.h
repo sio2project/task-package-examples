@@ -1,5 +1,5 @@
-#ifndef _gue_h
-#define _gue_h
+#ifndef _guelib_h
+#define _guelib_h
 
 int init();
 bool isGreater(int x);

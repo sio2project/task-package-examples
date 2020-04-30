@@ -1,4 +1,4 @@
-#include "gue.h"
+#include "guelib.h"
 
 int main()
 {

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "gue.h"
+#include "guelib.h"
 
 using namespace std;
 

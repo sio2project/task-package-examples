@@ -1,7 +1,7 @@
 title: Guess the number
 
-extra_compilation_files: ['gue.h', 'gue_lib.cpp', 'gue_lib.i']
-extra_compilation_args: {'cpp': 'gue_lib.cpp'}
+extra_compilation_files: ['guelib.h', 'guelib.cpp', 'guelib.i']
+extra_compilation_args: {'cpp': 'guelib.cpp'}
 
 memory_limit: 65536
 time_limit: 1000
