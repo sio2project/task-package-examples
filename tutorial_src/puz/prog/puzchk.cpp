@@ -6,7 +6,6 @@ constexpr unsigned MAX_LENGTH = 1e5;
 
 int grid[MAX_LENGTH][3];
 
-
 void endf(const char* msg, int line, int position) {
     std::cout << "WRONG" << std::endl;
     std::cout << "Line " << line << ": " << msg << std::endl;
@@ -53,11 +52,19 @@ int main(int argc, char** argv) {
                 std::cout << "Wrong number of puzzles!" << std::endl;
                 return 0;
             }
+            scanner.skipWhitespacesUntilEOLN();
+            scanner.readEoln();
 
             for (int i = 0; i < k; ++i) {
                 int x = scanner.readInt(0, n - 1);
+                scanner.readSpace();
+
                 int y = scanner.readInt(0, 1);
+                scanner.readSpace();
+                
                 int z = scanner.readInt(0, 1);
+                scanner.skipWhitespacesUntilEOLN();
+                scanner.readEoln();
 
                 int check = (z == 0 ? grid[x + 1][y] : grid[x][y + 1]);
                 
