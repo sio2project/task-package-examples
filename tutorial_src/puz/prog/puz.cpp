@@ -15,9 +15,9 @@
     std::cout << 3 * n / 2 << "\n";
 
     for (unsigned i = 0; i < n; i += 2) {
-        std::cout << i << " " << i << " 0\n";
-        std::cout << i << " " << i + 1 << " 1\n";
-        std::cout << i + 1 << " " << i + 1 << " 1\n";
+        std::cout << i << " 0 0\n";
+        std::cout << i << " 1 1\n";
+        std::cout << i + 1 << " 1 1\n";
     }
 
     return 0;

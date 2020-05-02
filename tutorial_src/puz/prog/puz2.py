@@ -8,7 +8,7 @@ print(3 * n // 2)
 
 i = 0
 while i < n:
-    print("%d %d 0" % (i, i))
-    print("%d %d 1" % (i, i + 1))
-    print("%d %d 1" % (i + 1, i + 1))
+    print("%d 0 0" % i)
+    print("%d 1 1" % i)
+    print("%d 1 1" % (i + 1))
     i += 2
