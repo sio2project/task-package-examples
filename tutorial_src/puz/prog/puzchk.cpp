@@ -60,19 +60,21 @@ int main(int argc, char** argv) {
     {
         oi::Scanner scanner(argv[2], endf, oi::PL);
         if (cantDoIt) {
-            int result_len = strlen(cantStr) + 1;
+            int resultLen = strlen(cantStr) + 1;
 
-            char result[result_len + 1];
-            result[result_len] = '\0';
+            char result[resultLen + 1];
 
-            scanner.readLine(result, result_len);
+            int readLen = scanner.readLine(result, resultLen);
             scanner.skipWhitespaces();
-            scanner.readEof();
+            if (resultLen == readLen) {
+                scanner.readEof();
+            }
 
             if (strcmp(cantStr, result) == 0) {
                 std::cout << "OK" << std::endl;
             } else {
                 std::cout << "WRONG" << std::endl;
+                std::cout << cantStr << " expected!" << std::endl;
             }
         } else {
             int k = scanner.readInt();
