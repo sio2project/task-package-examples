@@ -1,0 +1,42 @@
+\documentclass{spiral}
+  \def\title{Puzzle}
+  \def\id{puz}
+  \def\contest{Example task}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{256 MB}
+
+\begin{document}
+  \makeheader
+
+  After a long time of thinking John figured out a solution to the long forgotten puzzle.
+  He wants to check if his idea is correct, so he asked you to provide a program for verification.
+  The riddle goes something like this:\\
+  ``There is given an area of $3 \times n$ size. Can you cover all of it with puzzles of $1 \times 2$ size?''
+  John thinks he knows when it's possible, but have some special requirements about your program.
+
+  The left lower corner of the area will be our $(0, 0)$ point.
+  If the task is possible your program should give the integer $k$
+  denoting the number of puzzles needed for coverage.
+  After that it should print exactly $k$ lines, each containing 3 integers $x$, $y$, $z$.
+  The first two numbers denotes coordinate $(x, y)$ where the puzzle should be put.
+  Last one defines, should it be put vertically or horizontally.
+  If $z = 0$ the puzzle will be put horizontally (so it will cover fields $(x, y)$ and $(x + 1, y)$).
+  If $z = 1$ the puzzle will be put vertically (it will cover fields $(x, y)$ and $(x, y + 1)$).
+  Don't worry! If you know how many puzzles John should put on the area, but you can't show him how
+  you can still get a reward!
+  If the task is not possible your program should print one line saying ``Can't do it'.
+
+
+  \section{Input}
+
+    A single integer $n$ ($1 \leq n \leq 100\,000$) denoting length of rectangle.
+
+  \section{Output}
+
+    If coverage is not possible, print only one line saying ``Can't do it'.\\
+    
+
+  % \example{0}
+
+\end{document}
