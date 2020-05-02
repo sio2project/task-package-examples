@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <cstring>
+#include <fstream>
+#include <iostream>
 
 #include "oi.h"
 
@@ -6,9 +8,23 @@ constexpr unsigned MAX_LENGTH = 1e5;
 
 int grid[MAX_LENGTH][3];
 
+const char* cantStr = "Can't do that";
+
 void endf(const char* msg, int line, int position) {
     std::cout << "WRONG" << std::endl;
     std::cout << "Line " << line << ": " << msg << std::endl;
+    exit(1);
+}
+
+void puzzleOutOfBoard() {
+    std::cout << "Puzzle went out of the board" << std::endl; 
+    std::cout << "50" << std::endl;
+    exit(0);
+}
+
+void puzzlesIntesect() {
+    std::cout << "Puzzles intersect" << std::endl; 
+    std::cout << "50" << std::endl;
     exit(0);
 }
 
@@ -18,34 +34,49 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Read input data.
     int n;
     {
         std::ifstream input(argv[1]);
         input >> n;
     }
 
+    // Read model output.
+    int modelK;
+    bool cantDoIt = false;
+    {
+        std::ifstream output(argv[3]);
+        char first;
+        output >> first;
+        if (first == 'C') {
+            cantDoIt = true;
+        } else {
+            output.putback(first);
+            output >> modelK;
+        }
+    }
+
 
     {
         oi::Scanner scanner(argv[2], endf, oi::PL);
-        if (n % 2 != 0) {
-            const char* result = "Can't do that";
-            int result_len = strlen(result) + 1;
+        if (cantDoIt) {
+            int result_len = strlen(cantStr) + 1;
 
-            char* str = (char*)malloc(result_len * sizeof(char));
-            assert(str != NULL);
+            char result[result_len + 1];
+            result[result_len] = '\0';
 
-            scanner.readLine(str, result_len);
+            scanner.readLine(result, result_len);
             scanner.skipWhitespaces();
             scanner.readEof();
 
-            if (strcmp(result, str) == 0) {
+            if (strcmp(cantStr, result) == 0) {
                 std::cout << "OK" << std::endl;
             } else {
                 std::cout << "WRONG" << std::endl;
             }
         } else {
             int k = scanner.readInt();
-            if (k == (3 * n / 2)) {
+            if (k == modelK) {
                 std::cout << "OK" << std::endl;
             } else {
                 std::cout << "WRONG" << std::endl;
@@ -59,21 +90,33 @@ int main(int argc, char** argv) {
                 int x = scanner.readInt(0, n - 1);
                 scanner.readSpace();
 
-                int y = scanner.readInt(0, 1);
+                int y = scanner.readInt(0, 2);
                 scanner.readSpace();
                 
                 int z = scanner.readInt(0, 1);
-                scanner.skipWhitespacesUntilEOLN();
-                scanner.readEoln();
-
-                int check = (z == 0 ? grid[x + 1][y] : grid[x][y + 1]);
                 
-                if (grid[x][y] != 0 || check != 0) {
-                    std::cout << "Puzzles intercept" << std::endl;
-                    std::cout << "50" << std::endl;
-                    return 0;
+                scanner.skipWhitespacesUntilEOLN();
+                scanner.readEofOrEoln();
+
+                bool checkXY = (grid[x][y] == 0);
+
+                if (z == 0) {
+                    if (x == n - 1) {
+                        puzzleOutOfBoard();
+                    }
+                    if (!checkXY || grid[x + 1][y] != 0) {
+                        puzzlesIntesect();
+                    }
+                } else {
+                    if (y == 2) {
+                        puzzleOutOfBoard();
+                    }
+                    if (!checkXY || grid[x][y + 1] != 0) {
+                        puzzlesIntesect();
+                    }
                 }
 
+                // Mark current fields.
                 grid[x][y] = 1;
                 if (z == 0) {
                     grid[x + 1][y] = 1;
@@ -87,13 +130,12 @@ int main(int argc, char** argv) {
                     if (grid[i][j] == 0) {
                         std::cout << "Field is not covered" << std::endl;
                         std::cout << "50" << std::endl;
-                        return 0;
+                        return 1;
                     }
                 }
             }
         }
     }
-
 
     return 0;
 }
