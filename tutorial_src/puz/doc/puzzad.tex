@@ -25,7 +25,7 @@
   If $z = 1$ the puzzle will be put vertically (it will cover fields $(x, y)$ and $(x, y + 1)$).
   Don't worry! If you know how many puzzles John should put on the area, but you can't show him how
   you can still get a reward!
-  If the task is not possible your program should print one line saying ``Can't do it'.
+  If the task is not possible your program should print one line saying ``Can't do that'.
 
 
   \section{Input}
@@ -34,9 +34,15 @@
 
   \section{Output}
 
-    If coverage is not possible, print only one line saying ``Can't do it'.\\
+    If coverage is possible, the first line of standard output should contain exactly one integer $k$.
+    Each of next $k$ lines should contain exactly 3 integers $x$, $y$, $z$.
+    If $z = 0$ the puzzle will cover fields $(x, y)$ and $(x + 1, y)$.
+    If $z = 1$ the puzzle will cover fields $(x, y)$ and $(x, y + 1)$.
+    Remember that puzzles \textbf{cannot} intersect!\\
+    If coverage is not possible, print only one line saying ``Can't do that'.
     
 
-  % \example{0}
+  \example{0a}
+  \example{0b}
 
 \end{document}

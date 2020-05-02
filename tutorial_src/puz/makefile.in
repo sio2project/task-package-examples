@@ -1,5 +1,5 @@
 MODE=opr
-ID=__change__
+ID=puz
 SIG=$(ID)
 
 TIMELIMIT = 1
