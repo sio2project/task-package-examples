@@ -6,8 +6,6 @@
 
 constexpr unsigned MAX_LENGTH = 1e5;
 
-int grid[MAX_LENGTH][3];
-
 const char* cantStr = "Can't do that";
 
 void endf(const char* msg, int line, int position) {
@@ -33,6 +31,9 @@ int main(int argc, char** argv) {
         std::cerr << "Run: " << argv[0] << " in out wzo" << std::endl;
         return 1;
     }
+
+    int grid[MAX_LENGTH][3];
+    memset(grid, 0, MAX_LENGTH * sizeof(int) * 3);
 
     // Read input data.
     int n;
@@ -83,20 +84,20 @@ int main(int argc, char** argv) {
             } else {
                 std::cout << "WRONG" << std::endl;
                 std::cout << "Wrong number of puzzles!" << std::endl;
-                return 0;
+                return 1;
             }
             scanner.skipWhitespacesUntilEOLN();
             scanner.readEoln();
 
             for (int i = 0; i < k; ++i) {
                 int x = scanner.readInt(0, n - 1);
-                scanner.readSpace();
+                scanner.skipWhitespacesUntilEOLN();
 
                 int y = scanner.readInt(0, 2);
-                scanner.readSpace();
+                scanner.skipWhitespacesUntilEOLN();
                 
                 int z = scanner.readInt(0, 1);
-                
+                scanner.skipWhitespacesUntilEOLN();
                 scanner.skipWhitespacesUntilEOLN();
                 scanner.readEofOrEoln();
 
@@ -132,7 +133,7 @@ int main(int argc, char** argv) {
                     if (grid[i][j] == 0) {
                         std::cout << "Field is not covered" << std::endl;
                         std::cout << "50" << std::endl;
-                        return 1;
+                        return 0;
                     }
                 }
             }
