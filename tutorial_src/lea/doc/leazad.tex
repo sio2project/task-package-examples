@@ -1,0 +1,33 @@
+\documentclass{spiral}
+  \def\title{Leaves}
+  \def\id{lea}
+  \def\contest{Example task}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{64 MB}
+
+\begin{document}
+    \makeheader
+
+    Mamy $n$  - wierzchołkowe drzewo ukorzenione. Powiedz, ile jest liści.
+    PS: Korzeniem jest wierzchołek 1 i korzeń z definicji nie jest liściem.
+
+\section{Input}
+
+    A single integer $n$ ($n \leq 2 \cdot 10^5$) denoting the size of the tree.
+    Next $n-1$ rows contain two numbers stating edges of the tree.
+    $u \neq v$, edges are not repeating.
+
+\section{Output}
+
+    Output one number - number of leaves.
+
+    \example{0}
+
+\section{Scoring}
+
+    Podzadanie 1: n <= 100
+    Podzadanie 2: stopień korzenia jest > 1
+    Podzadanie 3: brak dodatkowych założeń
+
+\end{document}
