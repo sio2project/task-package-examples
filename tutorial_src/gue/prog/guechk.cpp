@@ -15,17 +15,17 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    // In file is not needed.
+    // File with input data is not needed.
     // Still needs to be passed as first argument in main,
     // for compatibility with sio2 system reasons.
+
+    // HINT: fin i fwzo are guaranteed to be correct,
+    // no need to read them with Scanner.
 
     char header_ans[100];
     FILE *fwzo = fopen(argv[3], "r");
     fscanf(fwzo, "%s", header_ans);
     fclose(fwzo);
-
-    // HINT: fin i fwzo are guaranteed to be correct,
-    // no need to read them with Scanner.
 
     oi::Scanner *test = new oi::Scanner(argv[2], endf, oi::PL);
 
@@ -43,10 +43,16 @@ int main(int argc, char **argv) {
     queries = test->readInt();
     test->readEoln();
     test->readLine(comment, 100);
-    test->readEof();
 
     if(strcmp(result, "OK")) {
         printf("%s\n%s\n", result, comment);
+        return 0;
+    }
+
+    test->readEof();
+
+    if (queries > 2000) {
+        printf("WRONG\nProgram used too much queries: %d\n", queries);
         return 0;
     }
 
