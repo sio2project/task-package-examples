@@ -11,7 +11,7 @@ const char* cantStr = "Can't do that";
 void endf(const char* msg, int line, int position) {
     std::cout << "WRONG" << std::endl;
     std::cout << "Line " << line << ": " << msg << std::endl;
-    exit(1);
+    exit(0);
 }
 
 void puzzleOutOfBoard() {
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
             } else {
                 std::cout << "WRONG" << std::endl;
                 std::cout << "Wrong number of puzzles!" << std::endl;
-                return 1;
+                return 0;
             }
             scanner.skipWhitespacesUntilEOLN();
             scanner.readEoln();
