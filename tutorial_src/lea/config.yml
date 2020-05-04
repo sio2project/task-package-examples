@@ -1,6 +1,6 @@
 title: Leaves
 
-memory_limit: 64000
+memory_limit: 65536
 time_limit: 1000
 
 scores:
