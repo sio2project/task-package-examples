@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <vector>
 
 #include "oi.h"
 
@@ -24,23 +25,20 @@ struct Test {
     Test(int _n) : n(_n) {}
     
     void print(int no, char *letter) {
-        // open file id + no + letter + ".in"
+        assert('a' <= *letter && *letter <= 'z');
         string name = id + to_string(no) + *letter + ".in";
         cerr << "Printing to file: " << name << "\n";
-        (*letter)++;
         ofstream outFile(name);
         outFile << n << "\n";
         for (auto edge : edges) {
             outFile << edge.first << " " << edge.second << "\n";
         }
         outFile.close();
-        
-        // It's a good habbit to set seed after each test,
-        // so that one test doesn't depend from previous ones.
-        RG.setSeed(no);
+        (*letter)++;
     }
 };
 
+// Shuffles vertices indexes and edges order
 void shuffle(Test *test) {
     RG.randomShuffle(test->edges.begin(), test->edges.end());
     for (int i = 0; i < test->n - 1; i++) {
@@ -60,34 +58,64 @@ void shuffle(Test *test) {
     }
 }
 
-Test path(int _n) {
+// Shuffles nodes indexes until vertex 1 has degree equal to one or not.
+// Works only when about half of vertices are leaves,
+// otherwise shuffling might take really long.
+Test forceRootDegree(Test test, bool forceToOne) {
+    while (true) {
+        int rootDegree = 0;
+        for (int i = 0; i < test.n - 1; i++) {
+            if (test.edges[i].first == 1 || test.edges[i].second == 1) {
+                rootDegree++;
+            }
+        }
+        if (rootDegree == 1 && forceToOne)
+            break;
+        if (rootDegree > 1 && !forceToOne)
+            break;
+        shuffle(&test);
+    }
+    return test;
+}
+
+// Path and star tests have a probability close to 1
+// that root has/has not the degree we want.
+// We trust it, worst case scenario inwer will inform us we are wrong.
+
+Test path(int _n, bool rootDegreeIsOne) {
     Test result = Test(_n);
     for (int i = 2; i <= result.n; i++) {
         result.edges.push_back({i-1, i});
     }
-    // korzeń ma st 1
-    shuffle(&result);
-    // teraz prawie na pewno nie
+
+    if (!rootDegreeIsOne)
+        shuffle(&result);
+
     return result;
 }
 
-Test star(int _n) {
+Test star(int _n, bool rootDegreeIsOne) {
     Test result = Test(_n);
     for (int i = 2; i <= result.n; i++) {
         result.edges.push_back({1, i});
     }
-    // korzeń ma st >1
-    shuffle(&result);
-    // teraz prawie na pewno nie
+
+    if (rootDegreeIsOne)
+        shuffle(&result);
+
     return result;
 }
+
+// Binary tree and random tests have a probability close to 0.5
+// that the root has/has not the degree we want.
+// Therefor we can safely shuffle indexes till we get the value we want.
 
 Test binaryTree(int _n) {
     Test result = Test(_n);
     for (int i = 2; i <= result.n; i++) {
         result.edges.push_back({i/2, i});
     }
-    // korzeń ma 50/50 stopień 1 bądź >1
+
     shuffle(&result);
     return result;
 }
@@ -97,9 +125,8 @@ Test random(int _n) {
     for (int i = 2; i <= result.n; i++) {
         result.edges.push_back(make_pair(randomUIntInRange(1, i-1), i));
     }
-    // korzeń prawie na pewno ma stopień >1
+
     shuffle(&result);
-    // teraz raczej >1, ale nie mam pojęcia jakie są prawdopodobieństwa
     return result;
 }
 
@@ -108,10 +135,11 @@ int main() {
     { // Test group 1.
         int group = 1;
         char c = 'a';
+        RG.setSeed(1);
         random(100).print(group, &c);
         random(92).print(group, &c);
-        path(100).print(group, &c);
-        star(100).print(group, &c);
+        path(100, false).print(group, &c);
+        star(100, true).print(group, &c);
         binaryTree(100).print(group, &c);
     }
     
@@ -119,20 +147,23 @@ int main() {
         int group = 2;
         char c = 'a';
         // przypilnować by root nie był liściem
-        random(maxN).print(group, &c);
-        random(maxN - 1337).print(group, &c);
-        path(maxN).print(group, &c);
-        star(maxN).print(group, &c);
-        binaryTree(maxN).print(group, &c);
+        RG.setSeed(2);
+        forceRootDegree(random(maxN), false).print(group, &c);
+        forceRootDegree(random(maxN - 1337), false).print(group, &c);
+        path(maxN, false).print(group, &c);
+        star(maxN, false).print(group, &c);
+        forceRootDegree(binaryTree(maxN), false).print(group, &c);
     }
     
     { // Test group 3.
         int group = 3;
         char c = 'a';
-        random(maxN).print(group, &c); // v trzeba przekminić, czy nie lepiej nadawać te set seedy, a jednocześnie jakoś deterministycznie
-        random(maxN-1337).print(group, &c); // te dwa testy wyplują inne wartości tylko dlatego, że ich seedy na początku są różne
-        path(maxN).print(group, &c);
-        star(maxN).print(group, &c);
+        RG.setSeed(3);
+        random(maxN).print(group, &c);
+        random(maxN-1337).print(group, &c);
+        forceRootDegree(random(maxN), true).print(group, &c);
+        path(maxN, true).print(group, &c);
+        star(maxN, true).print(group, &c);
         binaryTree(maxN).print(group, &c);
     }
     
