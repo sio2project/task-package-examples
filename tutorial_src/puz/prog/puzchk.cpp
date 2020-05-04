@@ -97,9 +97,13 @@ int main(int argc, char** argv) {
                 scanner.skipWhitespacesUntilEOLN();
                 
                 int z = scanner.readInt(0, 1);
-                scanner.skipWhitespacesUntilEOLN();
-                scanner.skipWhitespacesUntilEOLN();
-                scanner.readEofOrEoln();
+                if (i < k - 1) {
+                    scanner.skipWhitespacesUntilEOLN();
+                    scanner.readEoln();
+                } else {
+                    scanner.skipWhitespaces();
+                    scanner.readEof();
+                }
 
                 bool checkXY = (grid[x][y] == 0);
 
