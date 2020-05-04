@@ -1,7 +1,7 @@
 \documentclass{spiral}
-  \def\title{Leaves}
+  \def\title{Liście}
   \def\id{lea}
-  \def\contest{Example task}
+  \def\contest{Zadanie przykładowe}
   \def\desc{}
   \def\TL{1 s}
   \def\ML{64 MB}
@@ -9,25 +9,46 @@
 \begin{document}
     \makeheader
 
-    Mamy $n$  - wierzchołkowe drzewo ukorzenione. Powiedz, ile jest liści.
-    PS: Korzeniem jest wierzchołek 1 i korzeń z definicji nie jest liściem.
+    Drzewo jest to nieskierowany nieważony graf,
+    składający się z $n$ wierzchołków i $n-1$ krawędzi.
+    Charakterystyczne dla drzewa jest to, że jest ono spójne i acykliczne.
+    Liściem w drzewie jest wierzchołek, który ma stopień 1
+    (czyli wychodzi z niego tylko jedna krawędź).
+    Jeśli dane jest ukorzenione drzewo, to znaczy,
+    że pewien wyznaczony wierzchołek jest korzeniem.
+    Przyjmuje się, że w ukorzenionym drzewie korzeń nie może być liściem.
+    Dane jest $n$ - wierzchołkowe ukorzenione drzewo.
+    Korzeniem jest wierzchołek o indeksie 1.  
+    Twoim zadaniem jest obliczyć liczbę jego liści.
 
-\section{Input}
+\section{Wejście}
 
-    A single integer $n$ ($n \leq 2 \cdot 10^5$) denoting the size of the tree.
-    Next $n-1$ rows contain two numbers stating edges of the tree.
-    $u \neq v$, edges are not repeating.
+    W pierwszym wierszu wejścia podana jest jedna liczba $n$ ($n \leq 2 \cdot 10^5$)
+    oznaczająca liczbę wierzchołków drzewa.
+    Następne $n-1$ wierszy zawiera informacje o krawędziach w drzewie.
+    W $i$-tym wierszu znajdują się dwie różne liczby $u_i$ i $v_i$,
+    oznaczające końce $i$-tej krawędzi.
 
-\section{Output}
+\section{Wyjście}
 
-    Output one number - number of leaves.
+    Wypisz jedną liczbę - liczbę liści w drzewie.
 
     \example{0}
 
-\section{Scoring}
+\section{Ocenianie}
 
-    Podzadanie 1: n <= 100
-    Podzadanie 2: stopień korzenia jest > 1
-    Podzadanie 3: brak dodatkowych założeń
+    \begin{center}
+        \begin{tabular}{|c|p{5cm}|c|}
+            \hline
+            \textbf{Podzadanie} & \textbf{Ograniczenia} & \textbf{Punkty} \\
+            \hline
+            1 & $n \leq 100$ & 30 \\
+            \hline
+            2 & Z korzenia wychodzą przynajmniej 2 krawędzie & 20 \\
+            \hline
+            3 & brak dodatkowych założeń & 50 \\
+            \hline
+        \end{tabular}
+    \end{center}
 
 \end{document}
