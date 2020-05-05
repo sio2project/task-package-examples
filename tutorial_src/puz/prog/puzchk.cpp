@@ -61,12 +61,14 @@ int main(int argc, char** argv) {
     {
         oi::Scanner scanner(argv[2], endf, oi::PL);
         if (cantDoIt) {
-            int resultLen = strlen(cantStr) + 1;
+            int resultLen = strlen(cantStr);
 
             char result[resultLen + 1];
+            memset(result, 0, resultLen + 1);
 
-            int readLen = scanner.readLine(result, resultLen);
+            int readLen = scanner.readLine(result, resultLen + 1);
             scanner.skipWhitespaces();
+
             if (resultLen == readLen) {
                 scanner.readEof();
             }
@@ -84,7 +86,7 @@ int main(int argc, char** argv) {
             } else {
                 std::cout << "WRONG" << std::endl;
                 std::cout << "Wrong number of puzzles!" << std::endl;
-                return 0;
+                exit(0);
             }
             scanner.skipWhitespacesUntilEOLN();
             scanner.readEoln();
