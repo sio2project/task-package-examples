@@ -32,7 +32,6 @@ int main() {
         input_file.readSpace();
         int v = input_file.readInt(1, maxN);
         input_file.readEoln();
-        // kolejne 3 ify można wywalić, bo taaak, dfs wszystko sprawdzi, ale edukacyjnie zostawiłbym chociaż pierwszego
         if (u == v)
             input_file.error("Invalid edge - loop");
         if (u > v)

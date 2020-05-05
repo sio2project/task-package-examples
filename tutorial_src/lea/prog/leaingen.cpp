@@ -132,7 +132,7 @@ Test random(int _n) {
 
 int main() {
     
-    { // Test group 1.
+    { // Test group 1 - n <= 100
         int group = 1;
         char c = 'a';
         RG.setSeed(1);
@@ -143,10 +143,9 @@ int main() {
         binaryTree(100).print(group, &c);
     }
     
-    { // Test group 2.
+    { // Test group 2 - root degree > 1
         int group = 2;
         char c = 'a';
-        // przypilnować by root nie był liściem
         RG.setSeed(2);
         forceRootDegree(random(maxN), false).print(group, &c);
         forceRootDegree(random(maxN - 1337), false).print(group, &c);
@@ -155,7 +154,7 @@ int main() {
         forceRootDegree(binaryTree(maxN), false).print(group, &c);
     }
     
-    { // Test group 3.
+    { // Test group 3 - no additional constraints
         int group = 3;
         char c = 'a';
         RG.setSeed(3);
