@@ -6,7 +6,7 @@ using namespace std;
 
 void endf(const char* msg, int line, int position) {
     printf("WRONG\nProgram writes to standard output\n");
-    exit(1);
+    exit(0);
 }
 
 int main(int argc, char **argv) {

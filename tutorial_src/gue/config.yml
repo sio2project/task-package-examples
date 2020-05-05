@@ -3,5 +3,7 @@ title: Guess the number
 extra_compilation_files: ['guelib.h', 'guelib.cpp', 'guelib.i']
 extra_compilation_args: {'cpp': 'guelib.cpp'}
 
-memory_limit: 65536
+# Increase a bit the memory limit to balance
+# the memory used by linking the library.
+memory_limit: 67000
 time_limit: 1000
