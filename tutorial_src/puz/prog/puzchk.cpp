@@ -15,12 +15,14 @@ void endf(const char* msg, int line, int position) {
 }
 
 void puzzleOutOfBoard() {
+    std::cout << "OK" << std::endl;
     std::cout << "Puzzle went out of the board" << std::endl; 
     std::cout << "50" << std::endl;
     exit(0);
 }
 
 void puzzlesIntesect() {
+    std::cout << "OK" << std::endl;
     std::cout << "Puzzles intersect" << std::endl; 
     std::cout << "50" << std::endl;
     exit(0);
@@ -81,9 +83,7 @@ int main(int argc, char** argv) {
             }
         } else {
             int k = scanner.readInt();
-            if (k == modelK) {
-                std::cout << "OK" << std::endl;
-            } else {
+            if (k != modelK) {
                 std::cout << "WRONG" << std::endl;
                 std::cout << "Wrong number of puzzles!" << std::endl;
                 exit(0);
@@ -134,6 +134,7 @@ int main(int argc, char** argv) {
                 }
             }
 
+            std::cout << "OK" << std::endl;
             for (int i = 0; i < n; ++i) {
                 for (int j = 0; j < 3; ++j) {
                     if (grid[i][j] == 0) {
