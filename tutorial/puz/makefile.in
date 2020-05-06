@@ -1,0 +1,9 @@
+MODE=opr
+ID=puz
+SIG=$(ID)
+
+TIMELIMIT = 1
+SLOW_TIMELIMIT = 4
+MEMLIMIT = 262144
+
+OI_TIME = oiejq.sh
