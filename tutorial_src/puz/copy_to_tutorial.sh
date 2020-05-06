@@ -4,7 +4,7 @@ set -e
 
 # If you want to add whole directory you need to put * after dir name.
 # Example: in/* .
-_files=(  )
+_files=( doc/* in/* out/* prog/* config.yml Makefile makefile.in report.html )
 
 _id=${PWD##*/}
 

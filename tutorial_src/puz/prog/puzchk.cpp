@@ -16,14 +16,14 @@ void endf(const char* msg, int line, int position) {
 
 void puzzleOutOfBoard() {
     std::cout << "OK" << std::endl;
-    std::cout << "Puzzle went out of the board" << std::endl; 
+    std::cout << "Bricks went out of the board" << std::endl; 
     std::cout << "50" << std::endl;
     exit(0);
 }
 
 void puzzlesIntesect() {
     std::cout << "OK" << std::endl;
-    std::cout << "Puzzles intersect" << std::endl; 
+    std::cout << "Bricks intersect" << std::endl; 
     std::cout << "50" << std::endl;
     exit(0);
 }
