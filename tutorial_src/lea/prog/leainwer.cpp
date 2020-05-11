@@ -45,7 +45,7 @@ int main() {
             rootDegree++;
     }
     input_file.readEof();
-    
+
     dfs(1);
     // Checking if graph is connected.
     // Graph with n vertices and n-1 edges is a tree
@@ -54,7 +54,7 @@ int main() {
         if (!visited[i])
             input_file.error("Graph is not a tree");
     }
-    
+
     bool package[3];
     for (int i = 0; i < 3; i++)
         package[i] = false;

@@ -8,14 +8,14 @@ bool isLeaf[maxN + 7];
 int main() {
     int n;
     cin >> n;
-    
+
     for (int i = 2; i <= n; i++)
         isLeaf[i] = true;
-        
+
     for (int i = 0; i < n - 1; i++) {
         cin >> edges[i].first >> edges[i].second;
     }
-    
+
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < i; j++) {
             if (edges[i].first == edges[j].first) {

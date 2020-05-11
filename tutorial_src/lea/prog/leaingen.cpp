@@ -21,16 +21,16 @@ int randomUIntInRange(int a, int b) {
 struct Test {
     int n;
     vector<pair<int, int>> edges;
-    
+
     Test(int _n) : n(_n) {}
-    
+
     void print(int no, char *letter) {
         assert('a' <= *letter && *letter <= 'z');
         string name = id + to_string(no) + *letter + ".in";
         cerr << "Printing to file: " << name << "\n";
         ofstream outFile(name);
         outFile << n << "\n";
-        for (auto edge : edges) {
+        for (const auto &edge : edges) {
             outFile << edge.first << " " << edge.second << "\n";
         }
         outFile.close();
@@ -46,13 +46,13 @@ void shuffle(Test *test) {
             swap(test->edges[i].first, test->edges[i].second);
         }
     }
-    
+
     vector<int> mapping;
     for (int i = 0; i <= test->n; i++) {
         mapping.push_back(i);
     }
     RG.randomShuffle(mapping.begin() + 1, mapping.end());
-    
+
     for (int i = 0; i < test->n - 1; i++) {
         test->edges[i] = make_pair(mapping[test->edges[i].first], mapping[test->edges[i].second]);
     }
@@ -123,7 +123,7 @@ Test binaryTree(int _n) {
 Test random(int _n) {
     Test result = Test(_n);
     for (int i = 2; i <= result.n; i++) {
-        result.edges.push_back(make_pair(randomUIntInRange(1, i-1), i));
+        result.edges.push_back({randomUIntInRange(1, i-1), i});
     }
 
     shuffle(&result);
@@ -131,7 +131,7 @@ Test random(int _n) {
 }
 
 int main() {
-    
+
     { // Test group 1 - n <= 100
         int group = 1;
         char c = 'a';
@@ -142,7 +142,7 @@ int main() {
         star(100, true).print(group, &c);
         binaryTree(100).print(group, &c);
     }
-    
+
     { // Test group 2 - root degree > 1
         int group = 2;
         char c = 'a';
@@ -153,7 +153,7 @@ int main() {
         star(maxN, false).print(group, &c);
         forceRootDegree(binaryTree(maxN), false).print(group, &c);
     }
-    
+
     { // Test group 3 - no additional constraints
         int group = 3;
         char c = 'a';
@@ -165,7 +165,7 @@ int main() {
         star(maxN, true).print(group, &c);
         binaryTree(maxN).print(group, &c);
     }
-    
+
 }
 
 
