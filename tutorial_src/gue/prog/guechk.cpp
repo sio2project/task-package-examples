@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 
     test->readLine(header, 100);
 
-    if(strcmp(header, header_ans)) {
+    if (strcmp(header, header_ans)) {
         printf("WRONG\nProgram writes to standard output\n");
         return 0;
     }
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
     test->readEoln();
     test->readLine(comment, 100);
 
-    if(strcmp(result, "OK")) {
+    if (strcmp(result, "OK")) {
         printf("%s\n%s\n", result, comment);
         return 0;
     }
