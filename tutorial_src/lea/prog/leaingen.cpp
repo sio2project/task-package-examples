@@ -13,7 +13,7 @@ oi::Random RG(0xC0FFEE);
 
 const int maxN = 2e5;
 
-int randomUIntInRange(int a, int b) {
+unsigned randomUIntInRange(unsigned a, unsigned b) {
     unsigned res = RG.randUInt();
     return res % (b - a + 1) + a;
 }
