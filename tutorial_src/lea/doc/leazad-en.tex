@@ -1,0 +1,54 @@
+\documentclass{spiral}
+  \def\title{Leaves}
+  \def\id{lea}
+  \def\contest{Example task}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{64 MB}
+
+\begin{document}
+    \makeheader
+
+    \noindent A tree is a connected, undirected and unweighted graph,
+    consisting of $n$ vertices and $n-1$ edges.
+    The characteristic feature of the tree is that it is connected and acyclic.
+    A leaf in a tree is a vertex that has its degree equal to 1
+    (that is, only one edge is incident to it).
+    If a rooted tree is given, it means that a certain designated vertex is a root.
+    It is assumed that in a rooted tree the root is not called a leaf
+    (even if its degree is equal to 1).
+    You are given a $n$ - vertex rooted tree.
+    The root is the vertex with index 1.
+    Your task is to calculate the number of it's leaves.
+
+\section{Input}
+
+    In the first line of input one number $n$ ($n \leq 2 \cdot 10^5$) is given,
+    denoting the number of vertices of the tree.
+    The next $n-1$ lines contain information about the edges in the tree.
+    There are two different numbers $u_i$ and $v_i$ ($1 \leq u_i, v_i \leq n$)
+    given on the $i$-th line, denoting vertices connected by the $i$-th edge.
+
+\section{Output}
+
+    Output one number - number of leaves.
+
+    \example{0}
+
+\section{Scoring}
+
+    \begin{center}
+        \begin{tabular}{|c|p{5cm}|c|}
+            \hline
+            \textbf{Subtask} & \textbf{Constraints} & \textbf{Points} \\
+            \hline
+            1 & $n \leq 100$ & 30 \\
+            \hline
+            2 & There are at least 2 edges incident to the root & 20 \\
+            \hline
+            3 & no additional constraints & 50 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}
