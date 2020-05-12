@@ -11,7 +11,7 @@
 \def\sinolPointsText{Punkty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Polish language version                                 % 
+%% English language version                                % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{en}{%
 \def\sinolLang{english}
