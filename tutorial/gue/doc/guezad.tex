@@ -7,17 +7,17 @@
   \def\ML{64 MB}
 
 \begin{document}
-  \makeheader
+    \makeheader
 
-  Dana jest dwuosobowa gra ,,zgadnij liczbę''. Zasady są następujące:
-  pierwszy gracz wybiera liczbę z przedziału [1, $n$]
-  oraz podaje drugiemu graczowi $n$ ($1 \leq n \leq 10^6$).
-  Drugi gracz musi zgadnąć wybraną liczbę. 
-  Do dyspozycji ma zapytania postaci ,,czy szukana liczba jest większa niż $x$?''
-  Napisz program, który pomoże drugiemu graczowi zgadnąć liczbę tak,
-  by nie musiał użyć zbyt wielu zapytań.
+    \noindent Dana jest dwuosobowa gra ,,zgadnij liczbę''. Zasady są następujące:
+    pierwszy gracz wybiera liczbę z przedziału [1, $n$]
+    oraz podaje drugiemu graczowi $n$ ($1 \leq n \leq 10^6$).
+    Drugi gracz musi zgadnąć wybraną liczbę. 
+    Do dyspozycji ma zapytania postaci ,,czy szukana liczba jest większa niż $x$?''
+    Napisz program, który pomoże drugiemu graczowi zgadnąć liczbę tak,
+    by nie musiał użyć zbyt wielu zapytań.
 
-  \section{Komunikacja}
+\section{Komunikacja}
     Jest to zadanie interaktywne,
     to znaczy Twój program powinien używać biblioteki,
     która pozwala na zadawanie pytań pierwszemu graczowi.
@@ -70,12 +70,12 @@
             \end{itemize}
     \end{itemize}
 
-    Twój program \textbf{nie może} czytać żadnych danych
+    \noindent Twój program \textbf{nie może} czytać żadnych danych
     (ani ze standardowego wejścia, ani z plików).
     \textbf{Nie może} również nic wypisywać do plików ani na standardowe wyjście.
     Może pisać na standardowe wyjście diagnostyczne
-    (\texttt{stderr}) -- pamiętaj jednak, że zużywa to cenny czas.
-
+    (\texttt{stderr}) -- pamiętaj jednak, że zużywa to cenny czas.\\
+    \\
     Po użyciu funkcji \texttt{answer} Twój program powinien
     natychmiastowo zakończyć działanie.
 
@@ -137,8 +137,8 @@
         \item \textbf{Python:} bibliotekę \texttt{guelib.py}
             i przykładowy błędny program \texttt{gue.py}
     \end{itemize}
-
-    Zwróć uwagę, że biblioteki te różnią się od tych,
+    
+    \noindent Zwróć uwagę, że biblioteki te różnią się od tych,
     przy pomocy których będzie finalnie oceniane Twoje
     rozwiązanie, i służą jedynie do sprawdzenia poprawnej interakcji.
     Znajdując się w katalogu \texttt{dlazaw}, możesz
@@ -148,12 +148,12 @@
     \begin{itemize}
         \item \texttt{g++ -O3 -static gue.cpp guelib.cpp -std=c++11 -o gue}
     \end{itemize}
-
-    Programy w Pythonie nie wymagają dodatkowych kroków do uruchomienia.
-
+    
+    \noindent Programy w Pythonie nie wymagają dodatkowych kroków do uruchomienia.\\
+    \\
     Tak otrzymany program wczytuje z wejścia liczbę $n$,
     a w kolejnym wierszu sekretną liczbę $x$.
-
+    \\
     Pamiętaj, że dostępna przykładowa biblioteka nie sprawdza,
     czy dane na wejściu są sformatowane poprawnie
     ani czy spełnione są ograniczenia z treści zadania.

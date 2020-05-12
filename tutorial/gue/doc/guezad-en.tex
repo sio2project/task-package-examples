@@ -9,9 +9,9 @@
 \begin{document}
     \makeheader
 
-    A two-person ``guess the number'' game is given.
+    \noindent A two-person ``guess the number'' game is given.
     The rules are as follows:
-    the first player chooses a number in the range [1, $n$],
+    the first player chooses a number\\in the range [1, $n$],
     and gives the second player $n$ ($1 \leq n \leq 10^6$).
     The other player must guess the selected number. 
     He may ask questions saying ``is the secret number greater than $x$?''
@@ -70,16 +70,15 @@
 		                \texttt{void answer(int x);}
                 \item \textbf{Python:}
 		                \texttt{def answer(x)}
-                \end{itemize}
             \end{itemize}
+    \end{itemize}
 
-
-    Your program \textbf{cannot} read any data,
+    \noindent Your program \textbf{cannot} read any data,
     neither from standard input nor any files.
     Likewise, it \textbf{cannot} write to any files nor the standard output.
     It can write to the standard diagnostic output (\texttt{stderr}) -- remember
-    though that this takes (precious) time.
-
+    though that this takes (precious) time.\\
+    \\
     Your program should terminate immediately
     after calling the function \texttt{answer}.
 
@@ -146,7 +145,7 @@
             an incorrect sample program \texttt{gue.py}
     \end{itemize}
 
-    Note that these libraries are merely for the sake of checking
+    \noindent Note that these libraries are merely for the sake of checking
     correctness of interaction and differ from those which will eventually
     evaluate your solution.
     While in the \texttt{dlazaw} directory,
@@ -157,11 +156,11 @@
         \item \texttt{g++ -O3 -static gue.cpp guelib.cpp -std=c++11 -o gue}
     \end{itemize}
 
-    Running the Python code doesn't need any extra steps to be taken.
-
+    \noindent Running the Python code doesn't need any extra steps to be taken.\\
+    \\
     The resulting program reads from input the number $n$
     and in the next line the secret number.
-
+    \\
     Remember that the provided sample library does not check
     if the input data is in the correct format,
     nor whether aforementioned conditions are satisfied.

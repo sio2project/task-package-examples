@@ -73,7 +73,7 @@ int init() {
 bool isGreater(int x) {
     queries++;
     check();
-    
+
     assertCondition((x >= 1 && x <= N), "Incorrect function parameter");
 
     if (X != -1) {
