@@ -1,6 +1,33 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{spiral}
 
+\def\sinolShortNameText{Skr\'ot}
+\def\sinolRAMText{Limit pami\k eci}
+\def\sinolTimeText{Limit czasu}
+\def\sinolInputText{Wej\'scie dla testu}
+\def\sinolOutputText{Wyj\'scie dla testu}
+\def\sinolOtherSamplesText{Inne testy przyk\l adowe}
+\def\sinolSubtaskText{Podzadanie}
+\def\sinolPointsText{Punkty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Polish language version                                 % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{en}{%
+\def\sinolLang{english}
+%\selectlanguage{english}
+
+\def\sinolShortNameText{Short name}
+\def\sinolRAMText{Memory limit}
+\def\sinolTimeText{Time limit}
+\def\sinolInputText{Input for test}
+\def\sinolOutputText{Output for test}
+\def\sinolOtherSamplesText{Other example tests}
+\def\sinolSubtaskText{Subtask}
+\def\sinolPointsText{Points}
+
+}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -38,9 +65,9 @@
   {\LARGE \bf \title} \\
   \begin{small}
   \begin{tabularx}{\textwidth}{Xrl}
-    & \ifdef{id} Short name: & \bf \id \fi \\
-    \bf \contest & \ifdef{TL} Time limit: &  \bf \TL \fi \\
-    \desc & \ifdef{ML} Memory limit: & \bf \ML \fi \\
+    & \ifdef{id} \sinolShortNameText: & \bf \id \fi \\
+    \bf \contest & \ifdef{TL} \sinolTimeText: &  \bf \TL \fi \\
+    \desc & \ifdef{ML} \sinolRAMText: & \bf \ML \fi \\
   \end{tabularx}
   \end{small}
   \end{minipage}
@@ -62,33 +89,33 @@
   \begin{center}%
   \begin{minipage}[t]{0.45\textwidth}%
   \vspace{0pt}%
-      \noindent Wejście dla testu {\tt \id#1}:%
+      \noindent \sinolInputText {\tt \id#1}:%
       \includefile{../in/\id#1.in}%
   \end{minipage}\hfill%
   \begin{minipage}[t]{0.1\textwidth}%
   \end{minipage}%
   \begin{minipage}[t]{0.45\textwidth}%
   \vspace{0pt}%
-      \noindent Wyjście dla testu {\tt \id#1}:%
+      \noindent \sinolOutputText {\tt \id#1}:%
       \includefile{../out/\id#1.out}
   \end{minipage}%
   \end{center}%
 }
 
 \newcommand\fullexample[1]{
-  \noindent Wejście dla testu {\tt \id#1}:%
+  \noindent \sinolInputText {\tt \id#1}:%
   \includefile{../in/\id#1.in}%
 
-  \noindent Wyjście dla testu {\tt \id#1}:%
+  \noindent \sinolOutputText {\tt \id#1}:%
   \includefile{../out/\id#1.out}
 }
 
 \newcommand\note[1]{
-  \noindent {\bf Wyjaśnienie do przykładu:} #1
+  \noindent {\bf Explena:} #1
 }
 
 \newenvironment{ocen}{%
-  \subsection{Pozostałe testy przykładowe}
+  \subsection{\sinolOtherSamplesText}
   \begin{itemize}
 }{
   \end{itemize}
@@ -99,12 +126,11 @@
 }
 
 \newenvironment{grading}{
-Poniższa tabela opisuje dodatkowe warunki, które spełniają pewne grupy testów oraz liczbę punktów, którą można otrzymać za rozwiązanie jedynie testów spełniające te warunki.
 
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
-\textbf{Dodatkowe ograniczenia} & \textbf{Liczba punktów}\\ \hline
+\textbf{\sinolSubtaskText} & \textbf{\sinolPointsText}\\ \hline
 }{
 \end{tabular}
 \end{center}
