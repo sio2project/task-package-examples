@@ -1,0 +1,55 @@
+\documentclass{spiral}
+  \def\title{Liście}
+  \def\id{lea}
+  \def\contest{Zadanie przykładowe}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{64 MB}
+
+\begin{document}
+    \makeheader
+
+    \noindent Drzewo jest to spójny, nieskierowany i nieważony graf
+    składający się z $n$ wierzchołków i $n-1$ krawędzi.
+    Charakterystyczne dla drzewa jest to, że jest ono spójne i acykliczne.
+    Liściem w drzewie jest wierzchołek, który ma stopień 1
+    (czyli wychodzi z niego tylko jedna krawędź).
+    Jeśli dane jest ukorzenione drzewo, to znaczy,
+    że pewien wyznaczony wierzchołek jest korzeniem.
+    Przyjmuje się, że w ukorzenionym drzewie korzeń nie jest nazywany liściem
+    (nawet, jeśli jego stopień to 1).
+    Dane jest $n$-wierzchołkowe ukorzenione drzewo.
+    Korzeniem jest wierzchołek o indeksie 1.  
+    Twoim zadaniem jest obliczyć liczbę jego liści.
+
+\section{Wejście}
+
+    W pierwszym wierszu wejścia podana jest jedna liczba $n$ ($n \leq 2 \cdot 10^5$)
+    oznaczająca liczbę wierzchołków drzewa.
+    Następne $n-1$ wierszy zawiera informacje o krawędziach w drzewie.
+    W $i$-tym wierszu znajdują się dwie różne liczby $u_i$ i $v_i$
+    ($1 \leq u_i, v_i \leq n$), oznaczające końce $i$-tej krawędzi.
+
+\section{Wyjście}
+
+    Wypisz jedną liczbę - liczbę liści w drzewie.
+
+    \example{0}
+
+\section{Ocenianie}
+
+    \begin{center}
+        \begin{tabular}{|c|p{5cm}|c|}
+            \hline
+            \textbf{Podzadanie} & \textbf{Ograniczenia} & \textbf{Punkty} \\
+            \hline
+            1 & $n \leq 100$ & 30 \\
+            \hline
+            2 & Z korzenia wychodzą przynajmniej 2 krawędzie & 20 \\
+            \hline
+            3 & brak dodatkowych założeń & 50 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+\end{document}
