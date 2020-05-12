@@ -1,0 +1,161 @@
+\documentclass{spiral}
+  \def\title{Zgadnij liczbę}
+  \def\id{gue}
+  \def\contest{Zadanie przykładowe}
+  \def\desc{}
+  \def\TL{1 s}
+  \def\ML{64 MB}
+
+\begin{document}
+    \makeheader
+
+    \noindent Dana jest dwuosobowa gra ,,zgadnij liczbę''. Zasady są następujące:
+    pierwszy gracz wybiera liczbę z przedziału [1, $n$]
+    oraz podaje drugiemu graczowi $n$ ($1 \leq n \leq 10^6$).
+    Drugi gracz musi zgadnąć wybraną liczbę. 
+    Do dyspozycji ma zapytania postaci ,,czy szukana liczba jest większa niż $x$?''
+    Napisz program, który pomoże drugiemu graczowi zgadnąć liczbę tak,
+    by nie musiał użyć zbyt wielu zapytań.
+
+\section{Komunikacja}
+    Jest to zadanie interaktywne,
+    to znaczy Twój program powinien używać biblioteki,
+    która pozwala na zadawanie pytań pierwszemu graczowi.
+    Aby użyć biblioteki, należy wpisać na początku programu:
+    \begin{itemize}
+        \item \textbf{C++:}
+            \verb|#include "guelib.h"|
+
+        \item \textbf{Python:}
+            \texttt{from guelib import init, isGreater, answer}
+    \end{itemize}
+    Biblioteka udostępnia następujące trzy funkcje:
+    \begin{itemize}
+        \item $\texttt{init}()$ \\
+            Funkcja ta powinna zostać wywoływana
+            tylko raz, na początku działania programu.
+            Rozpoczyna ona grę, a gracz pierwszy wymyśla szukaną liczbę.
+            Zwraca liczbę $n$, podaną przez tego gracza.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{int init();}
+
+                \item \textbf{Python:}
+		                \texttt{def init()}
+            \end{itemize}
+
+        \item $\texttt{isGreater}(x)$ \\
+            Funkcja ta pyta pierwszego gracza,
+            czy wybrana przez niego liczba jest większa od $x$.
+            Zwraca \texttt{true} jeśli jest, \texttt{false} w przeciwnym wypadku.
+            Podana liczba powinna należeć do przedziału [1, $n$].
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{bool isGreater(int x);}
+
+                \item \textbf{Python:}
+		                \texttt{def isGreater(x)}
+            \end{itemize}
+
+        \item $\texttt{answer}(x)$ \\
+            Jest to funkcja, którą należy wywołać dokładnie raz,
+            na koniec działania Twojego programu.
+            Służy do podania odpowiedzi pierwszemu graczowi,
+            a liczba $x$ jest zgadywaną przez nas wartością.
+            \begin{itemize}
+                \item \textbf{C++:}
+		                \texttt{void answer(int x);}
+                \item \textbf{Python:}
+		                \texttt{def answer(x)}
+            \end{itemize}
+    \end{itemize}
+
+    \noindent Twój program \textbf{nie może} czytać żadnych danych
+    (ani ze standardowego wejścia, ani z plików).
+    \textbf{Nie może} również nic wypisywać do plików ani na standardowe wyjście.
+    Może pisać na standardowe wyjście diagnostyczne
+    (\texttt{stderr}) -- pamiętaj jednak, że zużywa to cenny czas.\\
+    \\
+    Po użyciu funkcji \texttt{answer} Twój program powinien
+    natychmiastowo zakończyć działanie.
+
+\section{Przykładowe wykonanie programu}
+    \begin{tabular}{|c|c|p{12.5cm}|}
+        \hline
+
+        \textbf{Funkcja} & \textbf{Wynik} & \textbf{Opis} \\ \hline
+
+        \texttt{init()} & 5 &
+        Gra się rozpoczyna. Gracz pierwszy wybiera liczbę 4,
+        a szukamy liczby w przedziale [1, 5], o czym jesteśmy poinformowani
+        wartością funkcji init().
+        \\ \hline
+
+        \texttt{isGreater(4)} & false &
+        Pytamy czy szukana liczba jest większa od 4.
+        Nie jest ona większa (gdyż jest ona równa),
+        więc otrzymujemy odpowiedź \texttt{false}. 
+        \\ \hline
+
+        \texttt{isGreater(3)} & true &
+        Pytamy czy szukana liczba jest większa od 3.
+        Jest ona większa, więc otrzymujemy odpowiedź \texttt{true}. 
+        \\ \hline
+
+        \texttt{answer(4)} & - &
+        Wiemy już, że szukaną liczbą jest 4,
+        więc udzielamy odpowiedzi i kończymy program.
+        \\ \hline
+    \end{tabular}
+
+\section{Ocenianie}
+    Żeby program dostał jakiekolwiek punkty,
+    musi on stosować się do zasad opisanych w sekcji komunikacji.
+    Jeżeli naruszy on którąś z tych zasad, otrzyma werdykt ,,Błędna odpowiedź''.\\
+    Jeśli powyższe warunki zostaną spełnione,
+    to program oceniany jest w następujący sposób.\\
+    Jeżeli zgadnięta liczba jest niepoprawna,
+    nie otrzyma on punktów za dany test.\\
+    W przeciwnym wypadku niech $k$ oznacza liczbę zapytań.
+    \begin{itemize}
+        \item Jeśli $k$ nie przekracza 20, program dostanie pełną liczbę punktów.
+        \item Jeśli $k$ przekracza 30, ale nie 2000,
+            program dostanie 50\% punktów za test.
+        \item Jeśli $k$ przekracza 20, ale nie przekracza $30$, to program otrzyma
+            $50 + (30 - k) \cdot 5$ punktów.
+        \item Jeśli powyższe warunki nie są spełnione, program dostanie 0 punktów.
+    \end{itemize}
+
+\section{Eksperymenty}
+    W katalogu \texttt{dlazaw} znajdują się pliki,
+    które pozwolą Ci przetestować poprawność formalną rozwiązania.
+    Możesz tam znaleźć następujące pliki:
+    \begin{itemize}
+        \item \textbf{C++:} plik nagłówkowy \texttt{guelib.h},
+            bibliotekę \texttt{guelib.cpp}
+            oraz przykładowy błędny program \texttt{gue.cpp}
+        \item \textbf{Python:} bibliotekę \texttt{guelib.py}
+            i przykładowy błędny program \texttt{gue.py}
+    \end{itemize}
+    
+    \noindent Zwróć uwagę, że biblioteki te różnią się od tych,
+    przy pomocy których będzie finalnie oceniane Twoje
+    rozwiązanie, i służą jedynie do sprawdzenia poprawnej interakcji.
+    Znajdując się w katalogu \texttt{dlazaw}, możesz
+    standardowo skompilować i uruchomić \texttt{cyk.cpp} lub \texttt{cyk.py}.
+    Przykładowa kompilacja w języku C++ to:
+
+    \begin{itemize}
+        \item \texttt{g++ -O3 -static gue.cpp guelib.cpp -std=c++11 -o gue}
+    \end{itemize}
+    
+    \noindent Programy w Pythonie nie wymagają dodatkowych kroków do uruchomienia.\\
+    \\
+    Tak otrzymany program wczytuje z wejścia liczbę $n$,
+    a w kolejnym wierszu sekretną liczbę $x$.
+    \\
+    Pamiętaj, że dostępna przykładowa biblioteka nie sprawdza,
+    czy dane na wejściu są sformatowane poprawnie
+    ani czy spełnione są ograniczenia z treści zadania.
+
+\end{document}
