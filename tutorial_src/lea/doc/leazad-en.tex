@@ -1,13 +1,12 @@
-\documentclass[en]{spiral}
-  \def\title{Leaves}
-  \def\id{lea}
-  \def\contest{Example task}
-  \def\desc{}
-  \def\TL{1 s}
-  \def\ML{64 MB}
+\documentclass[zad,zawodnik,utf8,en]{sinol}
+  \title{Leaves}
+  \id{lea}
+  \contest{Example task}
+  \Time{1}
+  \RAM{64}
 
 \begin{document}
-    \makeheader
+\begin{tasktext}
 
     \noindent A tree is a connected, undirected and unweighted graph,
     consisting of $n$ vertices and $n-1$ edges.
@@ -33,7 +32,8 @@
 
     Output one number - number of leaves.
 
-    \example{0}
+\examplesection
+    \makecompactexample{0}
 
 \section{Scoring}
 
@@ -51,4 +51,5 @@
         \end{tabular}
     \end{center}
 
+\end{tasktext}
 \end{document}
