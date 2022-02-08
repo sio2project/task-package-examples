@@ -5,24 +5,24 @@
 % \history{1.1}{Grzegorz Jakacki}{99/11/28}
 % \history{1.2}{Tomasz Walen}{00/09/14}
 % \history{1.2.1}{Tomasz Walen --- nazwy plikow pisane sa malymi lit.}{01/03/23}
-% \history{1.3}{Tomasz Waleñ --- lepsza obsluga obrazkow, przykladow, wiele trybów komentowania dokumentów }{01/04/02}
-% \history{1.3.1}{Tomasz Waleñ --- drobne zmiany, dodanie sinolLang, logo BOI}
-% \history{1.3.2}{Tomasz Waleñ --- dodanie trybu we/wyj}
-% \history{1.4}{Marcin Kubica --- Dodanie ilo¶ci potrzebnej pamiêci \RAM. Dodanie rysunków do ca³ych przyk³adów \exampleimg.}
-% \history{1.4.1}{Jakub Pawlewicz --- nie³adowanie klas babel i inputenc w wersji angielskiej}
-% \history{1.5}{Marcin Kubica --- dostosowanie do potrzeb konkursów
-% miêdzynarodowych (CEOI)}
+% \history{1.3}{Tomasz WaleÅ„ --- lepsza obsluga obrazkow, przykladow, wiele trybÃ³w komentowania dokumentÃ³w }{01/04/02}
+% \history{1.3.1}{Tomasz WaleÅ„ --- drobne zmiany, dodanie sinolLang, logo BOI}
+% \history{1.3.2}{Tomasz WaleÅ„ --- dodanie trybu we/wyj}
+% \history{1.4}{Marcin Kubica --- Dodanie iloÅ›ci potrzebnej pamiÄ™ci \RAM. Dodanie rysunkÃ³w do caÅ‚ych przykÅ‚adÃ³w \exampleimg.}
+% \history{1.4.1}{Jakub Pawlewicz --- nieÅ‚adowanie klas babel i inputenc w wersji angielskiej}
+% \history{1.5}{Marcin Kubica --- dostosowanie do potrzeb konkursÃ³w
+% miÄ™dzynarodowych (CEOI)}
 % \history{1.6}{Marcin Kubica --- dostosowanie do potrzeb IOI'2005:
 %   - opcja \iomode{otputonly}
 %   - opcja \iomode{interactive}
-%   - \pagestyle{fancy} dzia³a tak, jak na IOI
+%   - \pagestyle{fancy} dziaÅ‚a tak, jak na IOI
 %   - polecenie \Country
 %   - \includegraphics zamiast \epsffile}
 % \history{1.7}{Adam Iwanicki --- zmiana w tresci przykladowej input na
 %          verbatiminput, bo poprzednie polecenie nie zachowywalo jednak
 %          enterow}
 % \history{1.7.1}{Marcin Kubica --- poprawka w \@exampleputtogetherv
-%          dostosowuj±ca do verbatiminput.
+%          dostosowujÄ…ca do verbatiminput.
 % \history(1.7.2}{Marcin Kubica --- zwiekszenie miejsca na tytul zadania, 
 %          kosztem miejsca na nazwe kraju}
 % \history(1.8}{Szymon Acedanski --- zwiekszenie miejsca na tekst,
@@ -72,10 +72,10 @@
 \newif\ifetapdefed \etapdefedfalse  % czy podano etap
 \newif\ifkonkursdefed \konkursdefedfalse  % czy podano konkurs
 \newif\ifdaydefed \daydefedfalse  % czy podano dzien
-\newif\ifRAMdefed \RAMdefedfalse  % czy podano dostêpn± pamiêæ
-\newif\iftimedefed \timedefedfalse % czy podano czas dzia³ania
-\newif\ifDocVersiondefed % czy zdefiniowano wersjê dokumentu
-\DocVersiondefedfalse    % (domy¶lnie nie)
+\newif\ifRAMdefed \RAMdefedfalse  % czy podano dostÄ™pnÄ… pamiÄ™Ä‡
+\newif\iftimedefed \timedefedfalse % czy podano czas dziaÅ‚ania
+\newif\ifDocVersiondefed % czy zdefiniowano wersjÄ™ dokumentu
+\DocVersiondefedfalse    % (domyÅ›lnie nie)
 \newif\ifCountrydefed \Countrydefedfalse % Czy zdefiniowano kraj
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -99,7 +99,7 @@
        \marginpar{\raggedright \footnotesize $^\thesinolCommentNumber$#1}%
     \else%
        \ifx\@tempcstyle\@tempa%
-%%%% tradycyjna uwaga bezpo¶rednio w tek¶cie
+%%%% tradycyjna uwaga bezpoÅ›rednio w tekÅ›cie
          \addComment{#1}%
        \else%
          {
@@ -111,7 +111,7 @@
   \fi%
   \global\sinolshortagestrue%
 }
-% komentarze do tre¶ci zadañ
+% komentarze do treÅ›ci zadaÅ„
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\cstyle{inline}
 \newcounter{sinolCommentNumber}
@@ -133,7 +133,7 @@ $^\thesinolCommentNumber$%
     \comments
   \fi
 }
-% uwaga do tre¶ci zadania
+% uwaga do treÅ›ci zadania
 \renewcommand\comment[2]{%
   {\it \underline{#1}}
   \?{#2}
@@ -282,7 +282,7 @@ $^\thesinolCommentNumber$%
 \end{center}}
 %
 %
-% Rozpoznawanie rysunków pochodz±cych z MetaPosta
+% Rozpoznawanie rysunkÃ³w pochodzÄ…cych z MetaPosta
 \ifpdf
     \input supp-pdf.tex
     \input supp-mis.tex
@@ -334,7 +334,7 @@ $^\thesinolCommentNumber$%
   \global\etapdefedtrue
 }
 
-\newcommand{\konkurs}[1]{%
+\newcommand{\contest}[1]{%
   \def\sinolKonkurs{#1}%
   \global\konkursdefedtrue
 }
@@ -414,7 +414,7 @@ $^\thesinolCommentNumber$%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Angielska wersja napisów                                % 
+%% Angielska wersja napisÃ³w                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{en}{%
 \def\sinolLang{english}
@@ -465,7 +465,7 @@ $^\thesinolCommentNumber$%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Czeska wersja napisów                                   % 
+%% Czeska wersja napisÃ³w                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{cz}{%
 \def\sinolLang{czech}
@@ -505,7 +505,7 @@ $^\thesinolCommentNumber$%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Horwacka wersja napisów                                 % 
+%% Horwacka wersja napisÃ³w                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{hr}{%
 \def\sinolLang{croatian}
@@ -544,8 +544,6 @@ $^\thesinolCommentNumber$%
 \def\sinolTimeText{Vremensko ograni\v{c}enje}
 }
 
-\iomode{files}
-
 \newcommand{\iffileexists}[3]{%
   \immediate\openin\tmpfile #1\par
   \ifeof\tmpfile
@@ -572,7 +570,7 @@ $^\thesinolCommentNumber$%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Niemiecka wersja napisów                                % 
+%% Niemiecka wersja napisÃ³w                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{de}{%
 \def\sinolLang{german}
@@ -715,31 +713,31 @@ $^\thesinolCommentNumber$%
     }
   }
 
-  \newcommand{\exampleinput}{%
-      \iffileexists{\sinolTestIn/\ID0.in}{%
-          \includefile{\sinolTestIn/\ID0.in}
+  \newcommand{\exampleinput}[1]{%
+      \iffileexists{\sinolTestIn/\ID#1.in}{%
+          \includefile{\sinolTestIn/\ID#1.in}
       }{
-       \iffileexists{\ID0.in}{%
-          \includefile{\ID0.in}
+       \iffileexists{\ID#1.in}{%
+          \includefile{\ID#1.in}
        }{
          \smallskip
-         \?{brak pliku {\ttfamily\ID0.in}}\par
-         \erroutput{brak pliku '\ID0.in'}
+         \?{brak pliku {\ttfamily\ID#1.in}}\par
+         \erroutput{brak pliku '\ID#1.in'}
          \smallskip
        }
       }
   }
 
-  \newcommand{\exampleoutput}{%
-    \iffileexists{\sinolTestOut/\ID0.out}{%
-      \includefile{\sinolTestOut/\ID0.out}
+  \newcommand{\exampleoutput}[1]{%
+    \iffileexists{\sinolTestOut/\ID#1.out}{%
+      \includefile{\sinolTestOut/\ID#1.out}
     }{
-      \iffileexists{\ID0.out}{%
-         \includefile{\ID0.out}
+      \iffileexists{\ID#1.out}{%
+         \includefile{\ID#1.out}
       }{    
        \smallskip
-       \?{brak pliku {\ttfamily\ID0.out}}\par
-       \erroutput{brak pliku '\ID0.out'}
+       \?{brak pliku {\ttfamily\ID#1.out}}\par
+       \erroutput{brak pliku '\ID#1.out'}
        \smallskip
       }
     }
@@ -753,21 +751,21 @@ $^\thesinolCommentNumber$%
 
   \def\@exampleputtogetherv#1#2{#1 #2}
 
-  \newcommand{\makestandardexampleinput}{%
+  \newcommand{\makestandardexampleinput}[1]{%
     \noindent\sinolExampleInputText
     \ifundef{exampleInImg}{%
-      \exampleinput
+      \exampleinput{#1}
     }{
-      \@exampleputtogetherimg{\exampleinput}{\plainimg{\exampleInImg}}
+      \@exampleputtogetherimg{\exampleinput{#1}}{\plainimg{\exampleInImg}}
     }
   }
 
-  \newcommand{\makestandardexampleoutput}{%
+  \newcommand{\makestandardexampleoutput}[1]{%
     \noindent\sinolExampleOutputText
     \ifundef{exampleOutImg}{%
-      \exampleoutput
+      \exampleoutput{#1}
     }{
-      \@exampleputtogetherimg{\exampleoutput}{\plainimg{\exampleOutImg}}
+      \@exampleputtogetherimg{\exampleoutput{#1}}{\plainimg{\exampleOutImg}}
     }
   }
 
@@ -788,22 +786,21 @@ $^\thesinolCommentNumber$%
     \closein\tmpfile
   }
 
-  \newcommand{\@makestandardexampletext}{%
+  \newcommand{\@makestandardexampletext}[1]{%
     \@exampleputtogethertext{%
-      \makestandardexampleinput
+      \makestandardexampleinput{#1}
     }{%
-      \makestandardexampleoutput
+      \makestandardexampleoutput{#1}
     }
   }
 
-  \newcommand{\@makeexample}{%
-    \loadtestdir   
-    \section{\sinolSNamePrzyklad}
+  \newcommand{\@makeexample}[1]{%
+    \loadtestdir
     \ifundef{exampleImg}{%
-      \@makestandardexampletext
+      \@makestandardexampletext{#1}
     }{%
       \@exampleputtogetherimg{%
-        \@makestandardexampletext
+        \@makestandardexampletext{#1}
       }{
         \plainimg{\exampleImg}
       }
@@ -811,13 +808,17 @@ $^\thesinolCommentNumber$%
   }
 
 
-  \newcommand{\makestandardexample}{%
-    \let\@exampleputtogetherimg=\@exampleputtogetherh
-    \let\@exampleputtogethertext=\@exampleputtogetherv
-    \@makeexample
+  \newcommand{\examplesection}{%
+    \section{\sinolSNamePrzyklad}
   }
 
-  \newcommand{\makecompactexample}{%
+  \newcommand{\makestandardexample}[1]{%
+    \let\@exampleputtogetherimg=\@exampleputtogetherh
+    \let\@exampleputtogethertext=\@exampleputtogetherv
+    \@makeexample{#1}
+  }
+
+  \newcommand{\makecompactexample}[1]{%
     \def\@exampleputtogetherimg##1##2{%
       \@exampleputtogetherv{##1}{%
         \begin{center}
@@ -826,7 +827,7 @@ $^\thesinolCommentNumber$%
       }
     }
     \let\@exampleputtogethertext=\@exampleputtogetherh
-    \@makeexample
+    \@makeexample{#1}
   }
 
   \renewcommand{\concludedecls}{%
@@ -1108,7 +1109,7 @@ $^\thesinolCommentNumber$%
 \setlength{\hoffset}{-4mm} % this means 1in-15mm
 \setlength{\voffset}{-20mm} % this means 1in-15mm
 \setlength{\topmargin}{0pt}
-%% w przypadku stylu fancy, trzeba wy³±czyæ rysowanie linii w nag³ówku
+%% w przypadku stylu fancy, trzeba wyÅ‚Ä…czyÄ‡ rysowanie linii w nagÅ‚Ã³wku
 %\headrulewidth 0pt
 \renewcommand{\headrulewidth}{0pt}
 %\oldtitle{}
@@ -1137,7 +1138,8 @@ $^\thesinolCommentNumber$%
       \begin{minipage}[t]{0.8\textwidth}
         \sffamily\bfseries%
         \LARGE%
-        \xsinolcat: \sinolIdSignature\\
+        %% W szkolnych zadaniach skrÃ³t zadania jest nieistotny
+        %\xsinolcat: \sinolIdSignature\\
         \sinolTitle
       \end{minipage}
       \begin{minipage}[t]{0.1\textwidth}
@@ -1168,52 +1170,57 @@ $^\thesinolCommentNumber$%
     \hbox to\hsize{%
       {\bf
         \def\@tempempty{}%
-        %% Konkurs pokazuje siê tylko gdy jest niepusty
+        %% Konkurs pokazuje siÄ™ tylko gdy jest niepusty
         \ifkonkursdefed%
-          \ifx\sinolKonkurs\@tempempty,\ %
+          \ifx\sinolKonkurs\@tempempty\quad\ %
           \else%
             \sinolKonkursText%
-            \sinolKonkurs,\ %
+            \sinolKonkurs\quad\ %
           \fi%
         \else\?{brak}\erroutput{brak konkursu}\fi%
-        %% Etap pokazuje siê tylko gdy jest niepusty
+        %% Etap pokazuje siÄ™ tylko gdy jest niepusty
         \ifetapdefed%
           \ifx\sinolEtap\@tempempty%
           \else%
             \sinolEtapText\ %
             \sinolEtap%
           \fi%
-        \else\?{brak}\erroutput{brak etapu}\fi%
-        %% Dzieñ pokazuje siê tylko gdy jest niepusty
+        \else
+          %\?{brak}\erroutput{brak etapu}
+        \fi%
+        %% DzieÅ„ pokazuje siÄ™ tylko gdy jest niepusty
         \ifdaydefed%
           \ifx\sinolDay\@tempempty.
           \else,
             \sinolDayText\ 
             \sinolDay.
           \fi%
-        \else\?{brak}\erroutput{brak dnia}\fi%
-        %% Plik ¼ród³owy -- pokazuje sie, gdy 
+        \else
+          %\?{brak}\erroutput{brak dnia}
+	    \fi%
+        %% Plik ÅºrÃ³dÅ‚owy -- pokazuje sie, gdy
         %% sinolIOmode <> outputonly
         %\ifneq{\sinolIOmode}{outputonly}{
         %  \hskip 7pt
-          \sinolSourceText\
-          {\tt \ID.*}
+        %% ukryte dla uproszczenia
+        % \sinolSourceText\
+        %  {\tt \ID.*}
         %}%
       }%
     %}%
     %\smallskip
     %\hbox to\hsize{%
       \bf
-      %% Dostêpna pamiêæ -- pokazuje sie tylko gdy
+      %% DostÄ™pna pamiÄ™Ä‡ -- pokazuje sie tylko gdy
       %% nie jest pusta i jest zdefiniowana
       \ifRAMdefed%
         \ifx\sinolRAM\@tempempty%
         \else%
           \sinolRAMText:\
-          \sinolRAM\,MB. 
+          \sinolRAM\,MB.
         \fi%
       \else\fi%
-      %% Maksymalny czas dzia³ania -- pokazuje siê tylko gdy nie 
+      %% Maksymalny czas dziaÅ‚ania -- pokazuje siÄ™ tylko gdy nie
       %% jest pusty i jest zdefiniowany.
       \iftimedefed%
         \ifx\sinolTime\@tempempty%
@@ -1227,7 +1234,9 @@ $^\thesinolCommentNumber$%
     % generowaly prawidlowe odstepy. Nie wiem dlaczego to dziala, nie wiem dlaczego
     % bez tego nie dziala. Have fun.
       \hfill
-      \ifdatedefed{\it\sinolDate}\else\?{brak daty}\erroutput{brak daty}\fi
+      \ifdatedefed{\it\sinolDate}\else
+        %\?{brak daty}\erroutput{brak daty}
+      \fi
     }
     \bigskip
   \else
@@ -1255,6 +1264,8 @@ $^\thesinolCommentNumber$%
       \topsep 3\p@ \@plus1\p@ \@minus0\p@
       \itemsep 3\p@ \@plus1\p@ \@minus\p@}
 \let\@listI\@listi
+
+\iomode{stdin}
 
 
 
