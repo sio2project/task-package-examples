@@ -1,13 +1,12 @@
-\documentclass[en]{spiral}
-  \def\title{Puzzle}
-  \def\id{puz}
-  \def\contest{Example task}
-  \def\desc{}
-  \def\TL{1 s}
-  \def\ML{256 MB}
+\documentclass[zad,zawodnik,utf8,en]{sinol}
+  \title{Puzzle}
+  \id{puz}
+  \contest{Example task}
+  \Time{1}
+  \RAM{256}
 
 \begin{document}
-  \makeheader
+\begin{tasktext}
 
   \noindent
   After some time John figured out a solution to a long forgotten puzzle.
@@ -43,8 +42,9 @@
     Remember that bricks \textbf{cannot} intersect!\\
     If coverage is not possible, print only one line saying ``Can't do that''.
     
+  \examplesection
+  \makecompactexample{0a}
+  \makecompactexample{0b}
 
-  \example{0a}
-  \example{0b}
-
+\end{tasktext}
 \end{document}

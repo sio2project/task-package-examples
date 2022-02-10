@@ -1,13 +1,12 @@
-\documentclass{spiral}
-  \def\title{Liście}
-  \def\id{lea}
-  \def\contest{Zadanie przykładowe}
-  \def\desc{}
-  \def\TL{1 s}
-  \def\ML{64 MB}
+\documentclass[zad,zawodnik,utf8]{sinol}
+  \title{Liście}
+  \id{lea}
+  \contest{Zadanie przykładowe}
+  \Time{1}
+  \RAM{64}
 
 \begin{document}
-    \makeheader
+\begin{tasktext}
 
     \noindent Drzewo jest to spójny, nieskierowany i nieważony graf
     składający się z $n$ wierzchołków i $n-1$ krawędzi.
@@ -34,7 +33,8 @@
 
     Wypisz jedną liczbę - liczbę liści w drzewie.
 
-    \example{0}
+\examplesection
+    \makecompactexample{0}
 
 \section{Ocenianie}
 
@@ -52,4 +52,5 @@
         \end{tabular}
     \end{center}
 
+\end{tasktext}
 \end{document}
