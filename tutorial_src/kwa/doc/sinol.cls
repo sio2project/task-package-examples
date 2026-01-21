@@ -402,8 +402,8 @@ $^\thesinolCommentNumber$%
 %% Angielska wersja napisów                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{en}{%
-\def\sinolLang{english}
-%\selectlanguage{english}
+\def\sinolLang{polish}
+%\selectlanguage{polish}
 
 \def\sinolTitlePomysl{Idea}
 \def\sinolTitleZadanie{Task}

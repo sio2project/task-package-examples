@@ -282,21 +282,6 @@ $^\thesinolCommentNumber$%
 \end{center}}
 %
 %
-% Rozpoznawanie rysunków pochodzących z MetaPosta
-\ifpdf
-    \input supp-pdf.tex
-    \input supp-mis.tex
-
-    \DeclareGraphicsRule{.1}{mps}{*}{}
-    \DeclareGraphicsRule{.2}{mps}{*}{}
-    \DeclareGraphicsRule{.3}{mps}{*}{}
-    \DeclareGraphicsRule{.4}{mps}{*}{}
-    \DeclareGraphicsRule{.5}{mps}{*}{}
-    \DeclareGraphicsRule{.6}{mps}{*}{}
-    \DeclareGraphicsRule{.7}{mps}{*}{}
-    \DeclareGraphicsRule{.8}{mps}{*}{}
-    \DeclareGraphicsRule{.9}{mps}{*}{}
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
